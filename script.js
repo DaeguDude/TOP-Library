@@ -62,31 +62,44 @@ addBookToLibrary('Carol Dweck', 'growth mindset', '300', 'yes');
 
 render();
 
-// Grit
-// const book = document.createElement('div');
-// book.classList.add('book');
+// Add a New Book button is clicked...
+const newBookBtn = document.getElementById('new-book-btn');
+newBookBtn.addEventListener('click', (event) => {
+  // If button is clicked, bring out the form
+  
+  let bookInfoModal = document.getElementById('book-info-modal');
+  bookInfoModal.style.position = "fixed";
+  bookInfoModal.style.zIndex = 1;
+  bookInfoModal.style.backgroundColor = "rgba(0,0,0,0.4)";
+  bookInfoModal.style.overflow = "auto";
 
-// const title = document.createElement('div');
-// title.classList.add('title', 'book-items');
-// title.textContent = 'Grit';
+  bookInfoModal.style.display = "flex";
+  bookInfoModal.style.justifyContent = "center";
+  bookInfoModal.style.alignItems = "center";
+});
 
-// const author = document.createElement('div');
-// author.classList.add('author', 'book-items');
-// author.textContent = 'Angela Duckworth';
+// Make number of pages input numbers only!
+const modalNumPagesInput = document.getElementById('modal-num-pages');
+console.log(modalNumPagesInput)
 
-// const numPages = document.createElement('div');
-// numPages.classList.add('numPages', 'book-items');
-// numPages.textContent = '300';
 
-// const didRead = document.createElement('div');
-// didRead.classList.add('didRead', 'book-items');
-// didRead.textContent = "yes";
 
-// book.append(title, author, numPages, didRead);
+// Modal
+const submitAddBook = document.getElementById('submit-add-book');
+const submitCancel = document.getElementById('submit-cancel');
 
-// // Get the div 'book-list'
-// const bookList = document.getElementById('book-list');
-// bookList.append(book);
+// If AddBook is clicked...
+submitAddBook.addEventListener('click', (event) => {
+  
+})
+
+// If Cancel is clicked...
+submitCancel.addEventListener('click', (event) => {
+  let bookInfoModal = document.getElementById('book-info-modal');
+  bookInfoModal.style = '';
+  console.log(bookInfoModal);
+})
+
 
 
 

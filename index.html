@@ -8,12 +8,51 @@
   <script src="https://kit.fontawesome.com/fadac8530c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- MODAL HTML -->
+  <div id="book-info-modal">
+    <div id="modal-flex-container">
+      
+      <div class="modal-flex-items">BOOK INFORMATION</div>
+      
+      <div id="modal-title" class="modal-flex-items">
+        <p>Title:</p>
+        <input type="text" id="book-title" name="title">
+      </div>
+
+      <div id="modal-author" class="modal-flex-items">
+        <p>Author:</p>
+        <input type="text" id="author" name="author">
+      </div>
+
+      <div id="modal-num-pages" class="modal-flex-items">
+        <p>Number of Pages:</p>
+        <input type="text" id="num-pages" name="num-pages">
+      </div>
+
+      <div id="modal-read-or-not" class="modal-flex-items">
+        <p>Read or Not</p>
+        <form>
+          <div>
+            <input type="radio" id="yes" name="yes-or-no" value="yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="yes-or-no" value="no">
+            <label for="no">No</label>
+          </div>
+        </form>
+      </div>
+
+      <div id="submit-area" class="modal-flex-items">
+        <button id="submit-add-book">Add a book</button>
+        <button id="submit-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
  
+  <!-- MAIN HTML -->
   <div id="container">
-    
     <div id="header">
       <h1>LIBRARY</h1>
-      <button>Add a New Book</button>
+      <button id="new-book-btn">Add a New Book</button>
     </div>
 
     <div id="main">
@@ -26,7 +65,6 @@
         </div> <!-- book -->
       </div> <!-- book-list -->
     </div> <!-- main -->
-
 
     <div id="footer">
       <div id="contact">
