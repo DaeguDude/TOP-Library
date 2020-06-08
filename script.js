@@ -1,10 +1,10 @@
 // simple array
 let myLibrary = [];
 
-function Book(author, title, numPages, didRead) {
+function Book(title, author, numPages, didRead) {
   // the constructor
-  this.author = author
   this.title = title 
+  this.author = author
   this.numPages = numPages
   this.didRead = didRead
   // if(this.didRead === True) {
@@ -12,8 +12,8 @@ function Book(author, title, numPages, didRead) {
   // }
 }
 
-function addBookToLibrary(author, title, numPages, didRead) {
-  book = new Book(author, title, numPages, didRead);
+function addBookToLibrary(title, author, numPages, didRead) {
+  book = new Book(title, author, numPages, didRead);
   myLibrary.push(book);
 }
 
@@ -29,10 +29,12 @@ function render() {
   }
 
   // Loops through the 'myLibrary' array, and displays each book on the page
-  myLibrary.forEach(book => {
+  myLibrary.forEach((book, index) => {
     // Creating element, give it a className, change the content of the Node
     // with a proper value regarding to it.
+    
     const bookDiv = document.createElement('div');
+    bookDiv.setAttribute('data-book-id', index);
     bookDiv.classList.add('book');
 
     const title = document.createElement('div');
@@ -51,8 +53,40 @@ function render() {
     didRead.classList.add('didRead', 'book-items');
     didRead.textContent = book.didRead;
 
+    // ----------------------------------------------------------------------
+    const remove = document.createElement('div');
+    remove.setAttribute('id', 'remove');
+    remove.setAttribute('class', 'book-items');
+    
+    const removeButton = document.createElement('button');
+    removeButton.setAttribute('id', 'remove-btn');
+    removeButton.innerHTML = '<i class="fas fa-trash"></i>';
+
+    // I need to add eventListenr for button
+    // If it's clicked
+    //  1. Get the data-book-id of that object
+    //  2. Remove that object
+    removeButton.addEventListener('click', (event) => {
+      let remove = removeButton.parentNode;
+      let book = remove.parentNode;
+      let dataBookId = book.getAttribute('data-book-id');
+      console.log(dataBookId);
+
+      // How do I remove the object with the data-book-id value?
+      //  Loop through the entier myLibrary
+      //  Check if each book has certain attribute value
+      //  if you find it, remove
+      myLibrary.splice(dataBookId, 1); 
+      render();
+    })
+
+    remove.append(removeButton);
+    // ----------------------------------------------------------------------
+
     // Attach all the nodes to the bookDiv node
-    bookDiv.append(title, author, numPages, didRead);
+    bookDiv.append(title, author, numPages, didRead, remove);
+    
+    
     bookList.append(bookDiv);  
   })
   
@@ -121,8 +155,6 @@ submitCancel.addEventListener('click', (event) => {
   let bookInfoModal = document.getElementById('book-info-modal');
   bookInfoModal.style = '';
 })
-
-
 
 
 

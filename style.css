@@ -141,25 +141,16 @@
   font-size: 20px;
 }
 
-/* .title {
-  border: 1px solid black;
-  flex: 1 0 auto;
+/* Remove Button */
+/* ---------------------------- */
+#remove-btn {
+  width: 30%;
+  height: 40%;
 }
 
-.author {
-  border: 1px solid black;
-  flex: 1 0 auto;
-}
+/* ---------------------------- */
 
-.num-pages {
-  border: 1px solid black;
-  flex: 1 0 auto;
-}
 
-.read {
-  border: 1px solid black;
-  flex: 1 0 auto;
-} */
 
 
 /* footer section */
