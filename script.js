@@ -53,13 +53,6 @@ function render() {
   
 }
 
-addBookToLibrary('Angela Duckworth', 'grit', '300', 'yes')
-addBookToLibrary('Carol Dweck', 'growth mindset', '300', 'yes');
-addBookToLibrary('Angela Duckworth', 'grit', '300', 'yes')
-addBookToLibrary('Carol Dweck', 'growth mindset', '300', 'yes');
-addBookToLibrary('Angela Duckworth', 'grit', '300', 'yes')
-addBookToLibrary('Carol Dweck', 'growth mindset', '300', 'yes');
-
 render();
 
 // Add a New Book button is clicked...
@@ -78,26 +71,52 @@ newBookBtn.addEventListener('click', (event) => {
   bookInfoModal.style.alignItems = "center";
 });
 
-// Make number of pages input numbers only!
-const modalNumPagesInput = document.getElementById('modal-num-pages');
-console.log(modalNumPagesInput)
-
-
-
 // Modal
 const submitAddBook = document.getElementById('submit-add-book');
 const submitCancel = document.getElementById('submit-cancel');
 
 // If AddBook is clicked...
 submitAddBook.addEventListener('click', (event) => {
+  // Read the information that user has typed
+  let modalTitleInput = document.getElementById('modal-title').children[1];
+  let modalAuthorInput = document.getElementById('modal-author').children[1];
+  let modalNumPagesInput = document.getElementById('modal-num-pages').children[1];
+
+  let title = modalTitleInput.value;
+  let author = modalAuthorInput.value;
+  let numPages = modalNumPagesInput.value;
+  let didRead = '';
   
+  // Get radio button
+  let yesRadio = document.getElementById('yes');
+  let noRadio = document.getElementById('no');
+  let radioList = [yesRadio, noRadio];
+  radioList.forEach(radio => {
+    
+    // If it's checked, now add it to the Library
+    if(radio.checked === true) {
+      if(radio.id == 'yes') {
+        didRead = 'Yes';
+      } else {
+        didRead = 'No';
+      }
+    }
+  })
+
+  // Now adding a book
+  addBookToLibrary(title, author, numPages, didRead);
+  console.log(myLibrary);
+  // let bookInfoModal = document.getElementById('book-info-modal');
+  // bookInfoModal.style = '';
+  // render();
+
+  // Add it to the 'myLibrary' regarding to the information
 })
 
 // If Cancel is clicked...
 submitCancel.addEventListener('click', (event) => {
   let bookInfoModal = document.getElementById('book-info-modal');
   bookInfoModal.style = '';
-  console.log(bookInfoModal);
 })
 
 
