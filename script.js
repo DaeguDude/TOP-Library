@@ -18,9 +18,17 @@ function addBookToLibrary(author, title, numPages, didRead) {
 }
 
 function render() {
-  // Loops through the 'myLibrary' array, and displays each book on the page
+  
+  // Make the bookList clean.
+  const bookList = document.getElementById('book-list');
+  const bookListLength = bookList.children.length;
 
-  // 1. How can you loop through an array?
+  // Remove all the children except the first child
+  for (let i=bookListLength-1; i>=1; i--) {
+    bookList.removeChild(bookList.children[i]);
+  }
+
+  // Loops through the 'myLibrary' array, and displays each book on the page
   myLibrary.forEach(book => {
     // Creating element, give it a className, change the content of the Node
     // with a proper value regarding to it.
@@ -45,15 +53,10 @@ function render() {
 
     // Attach all the nodes to the bookDiv node
     bookDiv.append(title, author, numPages, didRead);
-
-    // Append a book to the 'bookList' div
-    const bookList = document.getElementById('book-list');
-    bookList.append(bookDiv);
+    bookList.append(bookDiv);  
   })
   
 }
-
-render();
 
 // Add a New Book button is clicked...
 const newBookBtn = document.getElementById('new-book-btn');
@@ -105,10 +108,10 @@ submitAddBook.addEventListener('click', (event) => {
 
   // Now adding a book
   addBookToLibrary(title, author, numPages, didRead);
-  console.log(myLibrary);
-  // let bookInfoModal = document.getElementById('book-info-modal');
-  // bookInfoModal.style = '';
-  // render();
+  
+  let bookInfoModal = document.getElementById('book-info-modal');
+  bookInfoModal.style = '';
+  render();
 
   // Add it to the 'myLibrary' regarding to the information
 })
