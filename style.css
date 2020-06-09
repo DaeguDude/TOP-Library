@@ -42,7 +42,27 @@
   margin-top: 5px;
 }
 
-.modal-flex-items input[type=text]:focus {
+.modal-flex-items input[type=number] {
+  width: 25%;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 80%;
+
+  /* Add some paddings inside input */
+  padding: 12px 12px;
+  margin-top: 5px;
+}
+
+/* Don't know why this works but this works
+for making input type number's arrow disappearing! */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.modal-flex-items input[type=text]:focus,
+.modal-flex-items input[type=number]:focus {
   border: 3px solid #555;
 }
 
