@@ -66,6 +66,18 @@ function render() {
       didReadBtn.textContent = "Not Read";
     }
 
+    // Now I want to add an eventlistener, that will change the
+    // value of this.
+    didReadBtn.addEventListener('click', (event) => {
+      // First I need to access the book prototype instance
+      if(book.didRead === true) {
+        book.didRead = false;
+      } else {
+        book.didRead = true;
+      }
+      render();
+    })
+
     
     didRead.append(didReadBtn);
 
