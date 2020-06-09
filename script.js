@@ -32,26 +32,44 @@ function render() {
   myLibrary.forEach((book, index) => {
     // Creating element, give it a className, change the content of the Node
     // with a proper value regarding to it.
-    
+
     const bookDiv = document.createElement('div');
     bookDiv.setAttribute('data-book-id', index);
-    bookDiv.classList.add('book');
+    bookDiv.setAttribute('class', 'book');
 
     const title = document.createElement('div');
-    title.classList.add('title', 'book-items');
+    title.setAttribute('id', 'title');
+    title.setAttribute('class', 'book-items');
     title.textContent = book.title;
 
     const author = document.createElement('div');
-    author.classList.add('author', 'book-items');
+    author.setAttribute('id', 'author');
+    author.setAttribute('class', 'book-items');
     author.textContent = book.author;
 
     const numPages = document.createElement('div');
-    numPages.classList.add('numPages', 'book-items');
+    numPages.setAttribute('id', 'num-pages');
+    numPages.setAttribute('class', 'book-items');
     numPages.textContent = book.numPages;
 
+    // I need to add an event, that will change the status of it
     const didRead = document.createElement('div');
-    didRead.classList.add('didRead', 'book-items');
-    didRead.textContent = book.didRead;
+    didRead.setAttribute('id', 'read-not-read');
+    didRead.setAttribute('class', 'book-items');
+
+    
+    // Create a button that will change the status
+    const didReadBtn = document.createElement('button');
+    if(book.didRead === true) {
+      didReadBtn.textContent = 'Read';
+    } else {
+      didReadBtn.textContent = "Not Read";
+    }
+
+    
+    didRead.append(didReadBtn);
+
+
 
     // ----------------------------------------------------------------------
     const remove = document.createElement('div');
@@ -133,9 +151,9 @@ submitAddBook.addEventListener('click', (event) => {
     // If it's checked, now add it to the Library
     if(radio.checked === true) {
       if(radio.id == 'yes') {
-        didRead = 'Yes';
+        didRead = true;
       } else {
-        didRead = 'No';
+        didRead = false;
       }
     }
   })
