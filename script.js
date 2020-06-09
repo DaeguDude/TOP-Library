@@ -157,5 +157,20 @@ submitCancel.addEventListener('click', (event) => {
 })
 
 
+// TASK 6
+// If book status is clicked, it changes to read to unread, and vice versa.
+
+// ----------------------------------------------------------------------
+// How do you gain the access to the book's read status?
+
+// Object.property 
+// myLibrary[].didRead
+
+// ----------------------------------------------------------------------
+
+// ----------------------------------------------------------------------
+// how can I change the status if it's clicked?
+
+document.getElementById('read-not-read');
 
 
