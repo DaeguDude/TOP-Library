@@ -153,22 +153,34 @@ submitAddBook.addEventListener('click', (event) => {
   let author = modalAuthorInput.value;
   let numPages = modalNumPagesInput.value;
   let didRead = '';
+
+  
+
   
   // Get radio button
   let yesRadio = document.getElementById('yes');
   let noRadio = document.getElementById('no');
+
   let radioList = [yesRadio, noRadio];
-  radioList.forEach(radio => {
+  // First check if radio button is checked
+  // If no button is checked, the variable 'didRead' will remain empty string.
+  for(let i = 0; i < radioList.length; i++) {
     
-    // If it's checked, now add it to the Library
-    if(radio.checked === true) {
-      if(radio.id == 'yes') {
+    if(radioList[i].checked === true) {
+      let radioId = radioList[i].getAttribute('id');
+     
+      if(radioId === 'yes') {
         didRead = true;
       } else {
+        console.log('false');
         didRead = false;
       }
+      // Because we found what is checked, breaking out of the loop
+      break;
     }
-  })
+  }
+
+
 
   // Now adding a book
   addBookToLibrary(title, author, numPages, didRead);
