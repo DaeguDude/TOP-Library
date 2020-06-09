@@ -154,9 +154,6 @@ submitAddBook.addEventListener('click', (event) => {
   let numPages = modalNumPagesInput.value;
   let didRead = '';
 
-  
-
-  
   // Get radio button
   let yesRadio = document.getElementById('yes');
   let noRadio = document.getElementById('no');
@@ -179,6 +176,23 @@ submitAddBook.addEventListener('click', (event) => {
       break;
     }
   }
+
+  // Before calling addBookToLibrary, we will have to check if it has any
+  // missing values
+  console.log('SubmitAddBook.AddEventListener: ');
+  console.log('checking if it has any missing values')
+  let isMissingValues = false;
+  let userInputs = [title, author, numPages, didRead];
+  userInputs.forEach(userInput => {
+    // START HERE!!!
+    // console.log(userInput.value);
+    // if(userInput.value === '') {
+    //   isMissingValues = true;
+    // }    
+  })
+
+  console.log(`isMissingValues: ${isMissingValues}`)
+
 
 
 
