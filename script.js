@@ -179,31 +179,22 @@ submitAddBook.addEventListener('click', (event) => {
 
   // Before calling addBookToLibrary, we will have to check if it has any
   // missing values
-  console.log('SubmitAddBook.AddEventListener: ');
-  console.log('checking if it has any missing values')
   let isMissingValues = false;
   let userInputs = [title, author, numPages, didRead];
   userInputs.forEach(userInput => {
-    // START HERE!!!
-    // console.log(userInput.value);
-    // if(userInput.value === '') {
-    //   isMissingValues = true;
-    // }    
+    if(userInput === '') {
+      isMissingValues = true;
+    }
   })
 
-  console.log(`isMissingValues: ${isMissingValues}`)
+  // If there's no missing values, add book to the 'myLibrary'
+  if(isMissingValues != true) {
+    addBookToLibrary(title, author, numPages, didRead);
 
-
-
-
-  // Now adding a book
-  addBookToLibrary(title, author, numPages, didRead);
-  
-  let bookInfoModal = document.getElementById('book-info-modal');
-  bookInfoModal.style = '';
-  render();
-
-  // Add it to the 'myLibrary' regarding to the information
+    let bookInfoModal = document.getElementById('book-info-modal');
+    bookInfoModal.style = '';
+    render();
+  }
 })
 
 // If Cancel is clicked...
