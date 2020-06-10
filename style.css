@@ -83,8 +83,7 @@ input::-webkit-inner-spin-button {
   font-size: 20px;
 }
 
-
-
+/* ------------------------------------------------------- */
 /* Main CSS */
 #container {
   display: flex;
@@ -92,6 +91,7 @@ input::-webkit-inner-spin-button {
   height: 100vh;
 }
 
+/* ------------------------------------------------------- */
 /* header section  */
 #header {
   flex: 1.5 0 auto;
@@ -129,8 +129,8 @@ input::-webkit-inner-spin-button {
 }
 
 
+/* ------------------------------------------------------- */
 /* main section */
-
 #main {
   flex: 7 0 auto;
   border: 1px solid black;
@@ -141,9 +141,10 @@ input::-webkit-inner-spin-button {
   height: 100%;
   
   border: 1px solid black;
-  padding: 2% 15%; /* vertical & horizontal */
+  padding: 2% 5%; /* vertical & horizontal */
   display: flex;
-  flex-flow: column;
+  /* flex-flow: <direction> <flex-wrap> < */
+  flex-flow: column nowrap;
 }
 
 .book {
@@ -152,13 +153,35 @@ input::-webkit-inner-spin-button {
 
 .book-items {
   border: 1px solid black;
-  flex: 1 0 auto;
   height: 50px;
 
   display: flex;
   justify-content: center; /* main-axis */
   align-items: center; /* cross-axis */
   font-size: 20px;
+}
+
+/* flexbox */
+
+/* flex: <flex-grow>, <flex-shrink>, <flex-basis> */
+#title {
+  flex: 5 0 auto;
+}
+
+#author {
+  flex: 2 0 auto;
+}
+
+#num-pages {
+  flex: 1 0 auto;
+}
+
+#read-not-read {
+  flex: 1 0 auto;
+}
+
+#remove {
+  flex: 1 0 auto;
 }
 
 /* Remove Button */
@@ -172,9 +195,8 @@ input::-webkit-inner-spin-button {
 
 
 
-
+/* ------------------------------------------------------- */
 /* footer section */
-
 #footer {
   flex: 0.5 0 auto;
   border: 1px solid black;

@@ -4,16 +4,17 @@ Library:
     Todos:
       ☐ Merge all the works up until task6 @Working
           
-        ☐ Organise all the codes into one branch
+        ✔ Organise all the codes into one branch @done(20-06-10 10:29)
           ✔ Number of pages can just take numbers @done(20-06-09 16:52)
-          ☐ Check if any of inputs in the form has any missing values @high
+          ✔ Check if any of inputs in the form has any missing values @done(20-06-10 10:25)
              ✔ Check if radio button is checked @done(20-06-09 17:25)
-             ☐ Check if all the inputs are filled before calling 'addBookToLibrary' @critical 
-
+             ✔ Check if all the inputs are filled before calling 'addBookToLibrary' @done(20-06-10 10:24)
+          
         ☐ Change some CSS
+          ☐ Alignment of flexbox table @critical 
+            ☐ [How to control ratios of flexbox?](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax) @critical 
           ☐ Remove Button
           ☐ Read or Not
-          ☐ Alignment of flexbox table
                
       ☐ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library)
         
