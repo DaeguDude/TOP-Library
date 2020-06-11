@@ -153,35 +153,57 @@ input::-webkit-inner-spin-button {
 
 .book-items {
   border: 1px solid black;
-  height: 50px;
+  padding: 20px;
+  /* height: 50px; */
 
   display: flex;
   justify-content: center; /* main-axis */
   align-items: center; /* cross-axis */
   font-size: 20px;
+  text-align: center;
+}
+
+#top-row-title {
+  flex: 5 1 0;
+}
+
+#top-row-author {
+  flex: 2 1 0;
+}
+
+#top-row-num-pages {
+  flex: 1 1 0;
+}
+
+#top-row-read-not-read {
+  flex: 1 1 0;
+}
+
+#top-row-remove {
+  flex: 1 1 0;
 }
 
 /* flexbox */
 
 /* flex: <flex-grow>, <flex-shrink>, <flex-basis> */
 #title {
-  flex: 5 0 auto;
+  flex: 5 1 0;
 }
 
 #author {
-  flex: 2 0 auto;
+  flex: 2 1 0;
 }
 
 #num-pages {
-  flex: 1 0 auto;
+  flex: 1 1 0;
 }
 
 #read-not-read {
-  flex: 1 0 auto;
+  flex: 1 1 0;
 }
 
 #remove {
-  flex: 1 0 auto;
+  flex: 1 1 0;
 }
 
 /* Remove Button */
