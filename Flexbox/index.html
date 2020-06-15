@@ -4,13 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/fadac8530c.js" crossorigin="anonymous"></script>
+  <style>
+    #flex-container {
+      display: flex;
+    }
+
+    .flex-items {
+      border: 1px solid black;
+    }
+
+    .flex-items:nth-child(1) {
+      flex: 1 0 50%;
+    }
+
+    .flex-items:nth-child(2) {
+      flex: 1 0 20%;
+    }
+
+    .flex-items:nth-child(3) {
+      flex: 1 0 10%;
+    }
+
+    .flex-items:nth-child(4) {
+      flex: 1 0 10%;
+    }
+
+    .flex-items:nth-child(5) {
+      flex: 1 0 10%;
+    }
+  </style>
+  
 </head>
 <body>
   <div id="flex-container">
     <div class="flex-items">One</div>
     <div class="flex-items">Two</div>
+    <div class="flex-items">Three</div>
+    <div class="flex-items">Four</div>
     <div class="flex-items">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore deserunt in illum voluptas dolore obcaecati ipsa laborum incidunt velit sapiente, ut fugit minus praesentium vero dolorem laboriosam itaque debitis libero.</div>
   </div>
 </body>

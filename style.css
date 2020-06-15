@@ -147,6 +147,10 @@ input::-webkit-inner-spin-button {
   flex-flow: column nowrap;
 }
 
+.book:first-child{
+  background: #4cc1bb;
+}
+
 .book {
   display: flex;
 }
@@ -159,51 +163,51 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center; /* main-axis */
   align-items: center; /* cross-axis */
-  font-size: 20px;
+  font-size: 1em;
   text-align: center;
 }
 
 #top-row-title {
-  flex: 5 1 0;
+  flex: 5 1 100px;
 }
 
 #top-row-author {
-  flex: 2 1 0;
+  flex: 2.5 1 100px;
 }
 
 #top-row-num-pages {
-  flex: 1 1 0;
+  flex: 0 0 100px;
 }
 
 #top-row-read-not-read {
-  flex: 1 1 0;
+  flex: 0 0 100px;
 }
 
 #top-row-remove {
-  flex: 1 1 0;
+  flex: 0 0 50px;
 }
 
 /* flexbox */
 
 /* flex: <flex-grow>, <flex-shrink>, <flex-basis> */
 #title {
-  flex: 5 1 0;
+  flex: 5 1 100px;
 }
 
 #author {
-  flex: 2 1 0;
+  flex: 2.5 1 100px;
 }
 
 #num-pages {
-  flex: 1 1 0;
+  flex: 0 0 100px;
 }
 
 #read-not-read {
-  flex: 1 1 0;
+  flex: 0 0 100px;
 }
 
 #remove {
-  flex: 1 1 0;
+  flex: 0 0 50px;
 }
 
 /* Remove Button */

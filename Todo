@@ -12,7 +12,12 @@ Library:
           
         ☐ Change some CSS
           ☐ Alignment of flexbox table @critical 
-            ☐ [How to control ratios of flexbox?](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax) @critical 
+            ✔ [How to control ratios of flexbox?](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax) @done(20-06-11 20:24)
+            ✔ Contents going out of the box @done(20-06-11 21:17) # height가 지정되어 있었음
+            ✔ div안에 글자 중앙으로 모으기 @done(20-06-11 21:34)
+            ☐ 폰트 크기 바꾸기
+            ☐ book-list 맨 위의 색깔 바꾸기
+
           ☐ Remove Button
           ☐ Read or Not
                
