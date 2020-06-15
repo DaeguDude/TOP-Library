@@ -1,38 +1,40 @@
-// simple array
+// 간단한 어레이
 let myLibrary = [];
 
+// 'Book' 컨스터럭터
 function Book(title, author, numPages, didRead) {
-  // the constructor
   this.title = title 
   this.author = author
   this.numPages = numPages
   this.didRead = didRead
-  // if(this.didRead === True) {
-  //   // Take some input from an user
-  // }
 }
 
+// 'Book' 컨스터럭터를 써서, myLibrary 어레이에 추가해줌
 function addBookToLibrary(title, author, numPages, didRead) {
   book = new Book(title, author, numPages, didRead);
   myLibrary.push(book);
 }
 
+// 'render' 함수는 화면에 myLibrary에 있는 모든 오브젝트들을 출력해줌
 function render() {
   
-  // Make the bookList clean.
+  // 먼저 북리스트를 dom으로 가져와, 첫번째 줄 빼고 다 지움
   const bookList = document.getElementById('book-list');
   const bookListLength = bookList.children.length;
 
-  // Remove all the children except the first child
   for (let i=bookListLength-1; i>=1; i--) {
     bookList.removeChild(bookList.children[i]);
   }
 
-  // Loops through the 'myLibrary' array, and displays each book on the page
+  // myLibrary 어레이를 한 번 돔
   myLibrary.forEach((book, index) => {
-    // Creating element, give it a className, change the content of the Node
-    // with a proper value regarding to it.
+    
+    // book-list에 추가될, 'book' div를 만들어가는 과정.
+    // 'book' div에 들어갈 제목, 저자, 페이지 수 등등의 하위 div들을
+    // 생성해줌
 
+    // book에 data-book-id라는 attribute를 생성하고 값을 줌으로써
+    // 나중에 remove를 할 때 용이하게 해줌
     const bookDiv = document.createElement('div');
     bookDiv.setAttribute('data-book-id', index);
     bookDiv.setAttribute('class', 'book');
@@ -52,13 +54,12 @@ function render() {
     numPages.setAttribute('class', 'book-items');
     numPages.textContent = book.numPages;
 
-    // I need to add an event, that will change the status of it
+    
     const didRead = document.createElement('div');
     didRead.setAttribute('id', 'read-not-read');
     didRead.setAttribute('class', 'book-items');
 
-    
-    // Create a button that will change the status
+    // 'book' 오브젝트의 값이 true면 read 아니라면 not read
     const didReadBtn = document.createElement('button');
     if(book.didRead === true) {
       didReadBtn.textContent = 'Read';
@@ -66,24 +67,25 @@ function render() {
       didReadBtn.textContent = "Not Read";
     }
 
-    // Now I want to add an eventlistener, that will change the
-    // value of this.
+    // 이 버튼이 클릭되었을 시, read -> not read, not read -> read로
+    // 바껴야함. 클릭이벤트 추가
     didReadBtn.addEventListener('click', (event) => {
-      // First I need to access the book prototype instance
+      // book object의 didRead 프로퍼티의 값을 읽어, 반대로 바꾸어줌
       if(book.didRead === true) {
         book.didRead = false;
+        didReadBtn.textContent = 'Not Read';
       } else {
         book.didRead = true;
+        didReadBtn.textContent = "Read";
       }
-      render();
     })
 
-    
+    // 이 버튼은, 'didRead' div의 child가 됨
     didRead.append(didReadBtn);
 
 
 
-    // ----------------------------------------------------------------------
+    // 그리고 마지막으로, 클릭될 시 그 줄을 지우는 삭제 버튼을 만듬
     const remove = document.createElement('div');
     remove.setAttribute('id', 'remove');
     remove.setAttribute('class', 'book-items');
@@ -92,21 +94,26 @@ function render() {
     removeButton.setAttribute('id', 'remove-btn');
     removeButton.innerHTML = '<i class="fas fa-trash"></i>';
 
-    // I need to add eventListenr for button
-    // If it's clicked
-    //  1. Get the data-book-id of that object
-    //  2. Remove that object
+    // 삭제 버튼 클릭시, 책의 정보를 담고 있는 줄을 지움
     removeButton.addEventListener('click', (event) => {
-      let remove = removeButton.parentNode;
-      let book = remove.parentNode;
-      let dataBookId = book.getAttribute('data-book-id');
-      console.log(dataBookId);
+      
+      // let remove = removeButton.parentNode;
+      let book = removeButton.parentNode.parentNode;
+      console.log(book);
+      // let book = remove.parentNode;
 
-      // How do I remove the object with the data-book-id value?
-      //  Loop through the entier myLibrary
-      //  Check if each book has certain attribute value
-      //  if you find it, remove
+
+      // 'render'의 첫번째 줄에서, 'book' div 생성시, attribute로
+      // data-book-id을 만들어, 책의 순서대로 0, 1, 2의 값을 주었었음
+      let dataBookId = book.getAttribute('data-book-id');
+      
+      console.log('before splice');
+      console.log(myLibrary);
+      
+      
       myLibrary.splice(dataBookId, 1); 
+      console.log('after splice');
+      console.log(myLibrary);
       render();
     })
 
@@ -122,11 +129,9 @@ function render() {
   
 }
 
-// Add a New Book button is clicked...
+// 'Add a New Book' 버튼 클릭시, 책의 정보를 입력할 수 있는 팝업 창 띄움
 const newBookBtn = document.getElementById('new-book-btn');
 newBookBtn.addEventListener('click', (event) => {
-  // If button is clicked, bring out the form
-  
   let bookInfoModal = document.getElementById('book-info-modal');
   bookInfoModal.style.position = "fixed";
   bookInfoModal.style.zIndex = 1;
@@ -138,47 +143,44 @@ newBookBtn.addEventListener('click', (event) => {
   bookInfoModal.style.alignItems = "center";
 });
 
-// Modal
+// 팝업 창 내의 Add a book과 Cancel 버튼
 const submitAddBook = document.getElementById('submit-add-book');
 const submitCancel = document.getElementById('submit-cancel');
 
-// If AddBook is clicked...
+// Add a book이 클릭되었을시
 submitAddBook.addEventListener('click', (event) => {
-  // Read the information that user has typed
+  
+  // 유저가 입력한 정보를 읽어들인다
   let modalTitleInput = document.getElementById('modal-title').children[1];
   let modalAuthorInput = document.getElementById('modal-author').children[1];
   let modalNumPagesInput = document.getElementById('modal-num-pages').children[1];
-
   let title = modalTitleInput.value;
   let author = modalAuthorInput.value;
   let numPages = modalNumPagesInput.value;
   let didRead = '';
 
-  // Get radio button
+  
+  // 라디오 버튼을 DOM으로 읽어들인다
   let yesRadio = document.getElementById('yes');
   let noRadio = document.getElementById('no');
-
   let radioList = [yesRadio, noRadio];
-  // First check if radio button is checked
-  // If no button is checked, the variable 'didRead' will remain empty string.
-  for(let i = 0; i < radioList.length; i++) {
-    
+
+  // 라디오버튼을 radioList에 넣어, for loop로 어떤 값이 입력되었는지
+  // 확인을 한 뒤, 그 값에 걸맞은 값을 'didRead' 변수에 넣어준다
+  for(let i = 0; i < radioList.length; i++) {  
     if(radioList[i].checked === true) {
       let radioId = radioList[i].getAttribute('id');
-     
       if(radioId === 'yes') {
         didRead = true;
       } else {
         console.log('false');
         didRead = false;
       }
-      // Because we found what is checked, breaking out of the loop
       break;
     }
   }
 
-  // Before calling addBookToLibrary, we will have to check if it has any
-  // missing values
+  // addBookToLibrary 함수를 호출하기 전, 유저가 안 채운 칸이 있는지 확인한다
   let isMissingValues = false;
   let userInputs = [title, author, numPages, didRead];
   userInputs.forEach(userInput => {
@@ -187,37 +189,24 @@ submitAddBook.addEventListener('click', (event) => {
     }
   })
 
-  // If there's no missing values, add book to the 'myLibrary'
+  // 안 채운 칸이 없다면, addBookToLibrary를 호출해 myLibrary에 넣어준다
   if(isMissingValues != true) {
     addBookToLibrary(title, author, numPages, didRead);
 
+    // 팝업창을 닫는다
     let bookInfoModal = document.getElementById('book-info-modal');
     bookInfoModal.style = '';
+
+    // 화면에 출력함
     render();
   }
 })
 
-// If Cancel is clicked...
+// 'Cancel' 버튼 클릭시 팝업 창을 닫아준다
 submitCancel.addEventListener('click', (event) => {
   let bookInfoModal = document.getElementById('book-info-modal');
   bookInfoModal.style = '';
 })
 
-
-// TASK 6
-// If book status is clicked, it changes to read to unread, and vice versa.
-
-// ----------------------------------------------------------------------
-// How do you gain the access to the book's read status?
-
-// Object.property 
-// myLibrary[].didRead
-
-// ----------------------------------------------------------------------
-
-// ----------------------------------------------------------------------
-// how can I change the status if it's clicked?
-
-document.getElementById('read-not-read');
 
 
