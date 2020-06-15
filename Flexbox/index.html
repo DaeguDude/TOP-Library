@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     #flex-container {
       display: flex;
+      width: 1000px;
+      background: yellow;
     }
 
     .flex-items {
@@ -14,23 +20,24 @@
     }
 
     .flex-items:nth-child(1) {
-      flex: 1 0 50%;
+      flex: 1 0 0;
     }
 
     .flex-items:nth-child(2) {
-      flex: 1 0 20%;
+      flex: 1 0 0;
     }
 
     .flex-items:nth-child(3) {
-      flex: 1 0 10%;
+      flex: 1 0 0;
     }
 
     .flex-items:nth-child(4) {
-      flex: 1 0 10%;
+      flex: 1 0 0;
     }
 
     .flex-items:nth-child(5) {
-      flex: 1 0 10%;
+      flex: 1 0 0;
+      padding: 10px;
     }
   </style>
   
