@@ -97,33 +97,24 @@ function render() {
     // 삭제 버튼 클릭시, 책의 정보를 담고 있는 줄을 지움
     removeButton.addEventListener('click', (event) => {
       
-      // let remove = removeButton.parentNode;
+      // parentNode 프로퍼티를 활용해, 'book' div를 자바스크립트로 가져옴
       let book = removeButton.parentNode.parentNode;
-      console.log(book);
-      // let book = remove.parentNode;
-
-
-      // 'render'의 첫번째 줄에서, 'book' div 생성시, attribute로
-      // data-book-id을 만들어, 책의 순서대로 0, 1, 2의 값을 주었었음
       let dataBookId = book.getAttribute('data-book-id');
       
-      console.log('before splice');
-      console.log(myLibrary);
-      
-      
+      // myLibrary안에서, dataBookID의 값과 일치하는 원소의 위치의
+      // 책을 지워줌
       myLibrary.splice(dataBookId, 1); 
-      console.log('after splice');
-      console.log(myLibrary);
+
+      // 그리고 다시 render()를 통해 업데이트해줌
       render();
     })
-
     remove.append(removeButton);
-    // ----------------------------------------------------------------------
+    
 
-    // Attach all the nodes to the bookDiv node
+    // 모든 하위 요소들을 bookDiv에 추가시켜줌
     bookDiv.append(title, author, numPages, didRead, remove);
     
-    
+    // bookList에 책을 추가시켜줌
     bookList.append(bookDiv);  
   })
   

@@ -152,6 +152,7 @@ input::-webkit-inner-spin-button {
 }
 
 .book:first-child{
+  min-width: 700px;
   background: #4cc1bb;
 }
 

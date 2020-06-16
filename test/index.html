@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <button>Add book</button>
+    <div id="enter"> <!-- Add a modal when Add book button is clicked -->
+    Title <input type="text" id="title"></br>
+    Author <input type="text" id="author"></br>
+    Total pages <input type="text" id="pages"></br>
+    <select id="readingProgress">
+        <option>--Select--</option>
+        <option >Read</option>
+        <option >In Progress</option>
+        <option >Not Read</option>
+    </select>
+    <button id="submit">Submit</button>
+    </div>
+    <table>
+        <tr> <!--Try to make this hidden until after the first book is added, but remain viewed after first book-->
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Reading Status</th>
+        </tr>
+    </table>
+    <script src="script.js"></script>
+  </body>
+</html>
