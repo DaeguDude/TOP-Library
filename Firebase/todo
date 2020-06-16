@@ -1,3 +1,17 @@
 Firebase:
 
-    ☐ 
+    ✔ Prerequisites: @done(20-06-16 13:50)
+        ✔ Install preferred editor or IDE @done(20-06-16 13:50)
+        ✔ Sign into Firebase using your google account @done(20-06-16 13:50)
+
+✔ STEP 1: Create a Firebase project @done(20-06-16 13:50)
+✔ STEP 2: Register your app with Firebase @done(20-06-16 13:51)
+
+✔ Before all of this, I need to deploy my project to github page so firebase @done(20-06-16 14:04)
+✔ can connect to it maybe? @done(20-06-16 14:04)
+
+Step 3: Add Firebase SDKs and initialize Firebase
+    ☐ Include Firebase products in `index.html`.
+    ☐ Initialize Firebase
+
+
