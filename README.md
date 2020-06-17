@@ -17,3 +17,17 @@ to my library web.
 In the Firebase documentation, it keeps saying about SDK. What is it?
 
 - What is SDK?
+
+It's called Software Development Kit. What it is is, they provide the software
+development tools for you to develop with it.
+
+Today, I was finally able to learn how to use Firebase Realtime Database.
+Now I can manage my database in the realtime. So it will not go away.
+
+## 06/18
+
+### Your Agenda Today
+
+- Change the CSS(Final Wrap up)
+- Refactor the Code(More Maintainable)
+- Hook your Database up with your code
