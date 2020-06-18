@@ -153,6 +153,12 @@ input::-webkit-inner-spin-button {
   flex-flow: column nowrap;
 }
 
+.book {
+  display: flex;
+  min-height: 50px;
+  background: #ccede8;
+  border-bottom: 1px solid #c0c1c1;
+}
 
 /* TOP-ROW and Bottom-ROW CSS*/
 .top-row-book {
@@ -164,19 +170,11 @@ input::-webkit-inner-spin-button {
 }
 
 .bottom-row-book {
-  border-radius: 0 0 0.2em 0.2em;
+  border-radius: 0 0 0.5em 0.5em;
   background: #faf0d8;
 }
 
-.book {
-  display: flex;
-  min-height: 50px;
-  
-}
-
 .book-items {
-  border: 1px solid black;
-  /* padding: 20px; */
   padding: 10px 0px;
 
   display: flex;
