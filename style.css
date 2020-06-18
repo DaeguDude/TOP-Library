@@ -224,10 +224,46 @@ input::-webkit-inner-spin-button {
   flex: 1 0 100px;
 }
 
-/* #read-not-read button {
-  width: 50%;
-  height: 50%;
-} */
+.read-btn {
+  height: 100%;
+  width: 70%;
+  background: #274b51;
+  color: white;
+  border-radius: 1em;
+  font-size: 0.8em;
+  cursor: pointer;
+  outline: none;
+}
+
+.read-btn:hover {
+  border: 3px solid #274b51;
+  background: #478792;
+}
+
+.read-btn:active {
+  transform: scale(0.9);
+}
+
+/* not-read button */
+.not-read-btn {
+  height: 100%;
+  width: 70%;
+  background: #8e3424;
+  color: white;
+  border-radius: 1em;
+  font-size: 0.8em;
+  cursor: pointer;
+  outline: none;
+}
+
+.not-read-btn:hover {
+  border: 3px solid #8e3424;
+  background: #cc4b34;
+}
+
+.not-read-btn:active {
+  transform: scale(0.9);
+}
 
 #remove {
   flex: 0 0 50px;

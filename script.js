@@ -63,8 +63,10 @@ function render() {
     const didReadBtn = document.createElement('button');
     if(book.didRead === true) {
       didReadBtn.textContent = 'Read';
+      didReadBtn.setAttribute('class', 'read-btn');
     } else {
       didReadBtn.textContent = "Not Read";
+      didReadBtn.setAttribute('class', 'not-read-btn');
     }
 
     // 이 버튼이 클릭되었을 시, read -> not read, not read -> read로
@@ -74,9 +76,11 @@ function render() {
       if(book.didRead === true) {
         book.didRead = false;
         didReadBtn.textContent = 'Not Read';
+        didReadBtn.setAttribute('class', 'not-read-btn');
       } else {
         book.didRead = true;
         didReadBtn.textContent = "Read";
+        didReadBtn.setAttribute('class', 'read-btn');
       }
     })
 
