@@ -18,9 +18,9 @@ body {
 }
 
 #modal-flex-container {
-  width: 80%;
-  height: 80%;
-  background: yellow;
+  width: 60%;
+  height: 60%;
+  background: #e09385;
   padding: 5%;
 
   display: flex;
@@ -28,10 +28,14 @@ body {
   justify-content: space-around;
 }
 
+#modal-flex-container p {
+  
+}
+
 .modal-flex-items {
   /* flex: <flex-grow> <flex-shrink> <flex-basis> */
   flex: 1 1 auto;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .modal-flex-items input[type=text] {
@@ -83,8 +87,20 @@ input::-webkit-inner-spin-button {
 #submit-area button {
   flex-basis: 200px;
   margin: 10px;
-
   font-size: 20px;
+  background: #3eac87;
+  color: #fff;
+  outline: none;
+}
+
+#submit-area button:hover {
+  cursor: pointer;
+  background: #4ed8a9;
+  border: 3px solid #3eac87;
+}
+
+#submit-area button:active {
+  transform: scale(0.95);
 }
 
 /* ------------------------------------------------------- */

@@ -149,7 +149,7 @@ newBookBtn.addEventListener('click', (event) => {
   let bookInfoModal = document.getElementById('book-info-modal');
   bookInfoModal.style.position = "fixed";
   bookInfoModal.style.zIndex = 1;
-  bookInfoModal.style.backgroundColor = "rgba(0,0,0,0.4)";
+  bookInfoModal.style.backgroundColor = "rgba(0,0,0,0.7)";
   bookInfoModal.style.overflow = "auto";
 
   bookInfoModal.style.display = "flex";
