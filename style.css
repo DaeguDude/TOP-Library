@@ -269,16 +269,20 @@ input::-webkit-inner-spin-button {
   flex: 0 0 50px;
 }
 
-
-
-/* Remove Button */
-/* ---------------------------- */
-#remove-btn {
-  width: 30%;
-  height: 40%;
+.fa-trash {
+  color: #3b3c3d;
+  cursor: pointer;
 }
 
-/* ---------------------------- */
+.fa-trash:hover {
+  color: #636466;
+}
+
+.fa-trash:active {
+  transform: translateX(5px) rotate(5deg);
+}
+
+
 
 
 

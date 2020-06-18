@@ -93,16 +93,15 @@ function render() {
     const remove = document.createElement('div');
     remove.setAttribute('id', 'remove');
     remove.setAttribute('class', 'book-items');
-    
-    const removeButton = document.createElement('button');
-    removeButton.setAttribute('id', 'remove-btn');
-    removeButton.innerHTML = '<i class="fas fa-trash"></i>';
 
+    const trashCan = document.createElement('i');
+    trashCan.setAttribute('class', 'fas fa-trash');
+    
     // 삭제 버튼 클릭시, 책의 정보를 담고 있는 줄을 지움
-    removeButton.addEventListener('click', (event) => {
+    trashCan.addEventListener('click', (event) => {
       
       // parentNode 프로퍼티를 활용해, 'book' div를 자바스크립트로 가져옴
-      let book = removeButton.parentNode.parentNode;
+      let book = trashCan.parentNode.parentNode;
       let dataBookId = book.getAttribute('data-book-id');
       
       // myLibrary안에서, dataBookID의 값과 일치하는 원소의 위치의
@@ -112,7 +111,27 @@ function render() {
       // 그리고 다시 render()를 통해 업데이트해줌
       render();
     })
-    remove.append(removeButton);
+    remove.append(trashCan);
+    
+    // const removeButton = document.createElement('button');
+    // removeButton.setAttribute('id', 'remove-btn');
+    // removeButton.innerHTML = '<i class="fas fa-trash"></i>';
+
+    // // 삭제 버튼 클릭시, 책의 정보를 담고 있는 줄을 지움
+    // removeButton.addEventListener('click', (event) => {
+      
+    //   // parentNode 프로퍼티를 활용해, 'book' div를 자바스크립트로 가져옴
+    //   let book = removeButton.parentNode.parentNode;
+    //   let dataBookId = book.getAttribute('data-book-id');
+      
+    //   // myLibrary안에서, dataBookID의 값과 일치하는 원소의 위치의
+    //   // 책을 지워줌
+    //   myLibrary.splice(dataBookId, 1); 
+
+    //   // 그리고 다시 render()를 통해 업데이트해줌
+    //   render();
+    // })
+    // remove.append(removeButton);
     
 
     // 모든 하위 요소들을 bookDiv에 추가시켜줌
