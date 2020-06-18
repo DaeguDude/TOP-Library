@@ -30,4 +30,12 @@ Now I can manage my database in the realtime. So it will not go away.
 
 - Change the CSS(Final Wrap up)
 - Refactor the Code(More Maintainable)
-- Hook your Database up with your code
+- ~Hook your Database up with your code~
+
+### Review of today
+
+Today, I got most of things done. I changed the CSS and Refactor the code(In
+my perspective). There's a lot to improve in my code. But I'm happy for what
+I have achieved.
+
+Now I will have to <strong>hoook the firebase realtime database with my code<strong>
