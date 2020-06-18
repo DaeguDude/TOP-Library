@@ -172,6 +172,7 @@ input::-webkit-inner-spin-button {
 .book {
   display: flex;
   min-height: 50px;
+  min-width: 700px;
   background: #ccede8;
   border-bottom: 1px solid #c0c1c1;
 }
