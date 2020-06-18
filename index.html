@@ -59,7 +59,7 @@
 
     <div id="main">
       <div id="book-list">
-        <div class="book">
+        <div class="top-row-book book">
           <div id="top-row-title" class="book-items">Title</div>
           <div id="top-row-author" class="book-items">Author</div>
           <div id="top-row-num-pages" class="book-items">Pages</div>
@@ -84,25 +84,21 @@
     </div>
   
   </div>
-  
-<!-- FIREBASE INTEGRATION -->
-<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="/__/firebase/7.15.0/firebase-app.js"></script>
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="/__/firebase/7.15.0/firebase-analytics.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
-  <script src="/__/firebase/7.15.0/firebase-auth.js"></script>
-  <script src="/__/firebase/7.15.0/firebase-firestore.js"></script>
-
-  <!-- Previously loaded Firebase SDKs -->
-
-  <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
-
 </body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
+
+<!-- You need to include this SDK to use `firebase.database()` -->
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-database.js"></script>
+
+<script src="firebase-test.js"></script>
+
+<!-- Main Javascript -->
 <script src="script.js"></script>
+
 </html>
