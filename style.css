@@ -28,10 +28,6 @@ body {
   justify-content: space-around;
 }
 
-#modal-flex-container p {
-  
-}
-
 .modal-flex-items {
   /* flex: <flex-grow> <flex-shrink> <flex-basis> */
   flex: 1 1 auto;
@@ -45,7 +41,6 @@ body {
   font-size: 80%;
 
   /* Add some paddings inside input */
-  
   padding: 12px 12px;
   margin-top: 5px;
 }
@@ -61,8 +56,7 @@ body {
   margin-top: 5px;
 }
 
-/* Don't know why this works but this works
-for making input type number's arrow disappearing! */
+/* Make arrow disappering in the input numPages */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -71,6 +65,7 @@ input::-webkit-inner-spin-button {
 
 .modal-flex-items input[type=text]:focus,
 .modal-flex-items input[type=number]:focus {
+  outline: none;
   border: 3px solid #555;
 }
 
@@ -113,6 +108,7 @@ input::-webkit-inner-spin-button {
 
 /* ------------------------------------------------------- */
 /* header section  */
+/* ------------------------------------------------------- */
 #header {
   min-height: 15%;
   flex: 1.5 0 auto;
@@ -152,6 +148,7 @@ input::-webkit-inner-spin-button {
 
 /* ------------------------------------------------------- */
 /* main section */
+/* ------------------------------------------------------- */
 #main {
   flex: 7 0 auto;
   border: 1px solid black;
@@ -165,6 +162,7 @@ input::-webkit-inner-spin-button {
   border: 1px solid black;
   padding: 2% 5%; /* vertical & horizontal */
   display: flex;
+  
   /* flex-flow: <direction> <flex-wrap> < */
   flex-flow: column nowrap;
 }
@@ -186,11 +184,6 @@ input::-webkit-inner-spin-button {
   font-size: 1.3em;
 }
 
-.bottom-row-book {
-  border-radius: 0 0 0.5em 0.5em;
-  background: #faf0d8;
-}
-
 .book-items {
   padding: 10px 0px;
 
@@ -200,27 +193,9 @@ input::-webkit-inner-spin-button {
   text-align: center;
 }
 
-#top-row-title {
-  flex: 5 0 300px;
-}
-
-#top-row-author {
-  flex: 3 0 200px;
-}
-
-#top-row-num-pages {
-  flex: 1 0 100px;
-}
-
-#top-row-read-not-read {
-  flex: 1 0 100px;
-}
-
-#top-row-remove {
-  flex: 0 0 50px;
-}
-
-/* flexbox */
+/* flex-basis is calculated before any available space is distributed */
+/* We are giving it minimum width for each column, to not shrink when
+there is not space avaiable */
 
 /* flex: <flex-grow>, <flex-shrink>, <flex-basis> */
 #title {
@@ -237,6 +212,10 @@ input::-webkit-inner-spin-button {
 
 #read-not-read {
   flex: 1 0 100px;
+}
+
+#remove {
+  flex: 0 0 50px;
 }
 
 .read-btn {
@@ -280,10 +259,6 @@ input::-webkit-inner-spin-button {
   transform: scale(0.9);
 }
 
-#remove {
-  flex: 0 0 50px;
-}
-
 .fa-trash {
   color: #3b3c3d;
   cursor: pointer;
@@ -296,10 +271,6 @@ input::-webkit-inner-spin-button {
 .fa-trash:active {
   transform: translateX(5px) rotate(5deg);
 }
-
-
-
-
 
 /* ------------------------------------------------------- */
 /* footer section */
