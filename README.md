@@ -39,3 +39,25 @@ my perspective). There's a lot to improve in my code. But I'm happy for what
 I have achieved.
 
 Now I will have to <strong>hoook the firebase realtime database with my code<strong>
+
+## 06/22
+
+I got the all the tasks requirements done. I guess now it's time for some obvious
+debugging. I don't need to go all willy nilly inside the code, but I will have to
+fix the stuff that is really obvious.
+
+What is there?
+
+- In the pop up box, when something is blank, show the error message
+- Change some css to actually show well on the various devices
+
+### Review of today
+
+I couldn't finish the css part. And there was another todo popped up.
+I need to know how to hide API key on Github
+
+## 06/23
+
+- Change css to adapt to the various devices
+- [How do you hide API key on Github?](https://developer.github.com/v3/actions/secrets/)
+(https://www.youtube.com/watch?v=-xIXFxuZCMI)
