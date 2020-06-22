@@ -4,6 +4,7 @@
 // How to Read and Write Data on the Web
 // https://firebase.google.com/docs/database/web/read-and-write
 
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyDpoBAyxS50EyCJVaE7hFN7JjdKjm5Ce90",
@@ -16,17 +17,13 @@ var firebaseConfig = {
   measurementId: "G-PLT2HSTMDQ"
 };
 
-var config = {
-  apiKey: "AIzaSyDpoBAyxS50EyCJVaE7hFN7JjdKjm5Ce90",
-  authDomain: "library-9836a.firebaseapp.com",
-  databaseURL: "https://library-9836a.firebaseio.com",
-  storageBucket: "library-9836a.appspot.com"
-}
 // Initialize Firebase
 firebase.initializeApp(config);
 
 // Get a reference to the database service
 var database = firebase.database();
+
+
 
 function writeBookData(title, author, numPages, isRead) {
   database.ref('Book/' + title).set({

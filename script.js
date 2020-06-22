@@ -1,6 +1,27 @@
 // Simple array to contain the book objects
 let myLibrary = [];
 
+// Firebase configuration
+let firebaseConfig = {
+  apiKey: "AIzaSyDpoBAyxS50EyCJVaE7hFN7JjdKjm5Ce90",
+  authDomain: "library-9836a.firebaseapp.com",
+  databaseURL: "https://library-9836a.firebaseio.com",
+  projectId: "library-9836a",
+  storageBucket: "library-9836a.appspot.com",
+  messagingSenderId: "308716423146",
+  appId: "1:308716423146:web:a165bf2f3dc3c3f4d41493",
+  measurementId: "G-PLT2HSTMDQ"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+let database = firebase.database();
+
+// bookReference
+let bookRef = database.ref('Books/');
+
 // 'Book' Constructor
 function Book(title, author, numPages, didRead) {
   this.title = title 
@@ -14,6 +35,23 @@ function addBookToLibrary(title, author, numPages, didRead) {
   book = new Book(title, author, numPages, didRead);
   myLibrary.push(book);
 }
+
+function addBookToFirebase(title, author, numPages, didRead) {
+  database.ref('Books/' + title).set({
+    title: title,
+    author: author,
+    numPages: numPages,
+    didRead: didRead
+  }, function(error) {
+    // Completion Callback
+    // This will let you know if your data throws an error
+    if (error) {
+      console.log('The Write Failed.');
+    } 
+  });
+}
+
+
 
 // Print all the book objects in myLibrary on the screen
 function render() {
@@ -75,20 +113,28 @@ function render() {
     // This button toggles between 'read' and 'not-read'
     didReadBtn.addEventListener('click', (event) => {
       if(book.didRead === true) {
+        
+        // Change the local book status
         book.didRead = false;
+        // Change the status in Firebase
+        database.ref('Books/' + book.title).update({
+          didRead: false
+        })
+
         didReadBtn.textContent = 'Not Read';
         didReadBtn.setAttribute('class', 'not-read-btn');
+
       } else {
         book.didRead = true;
+        database.ref('Books/' + book.title).update({
+          didRead: true
+        })
         didReadBtn.textContent = "Read";
         didReadBtn.setAttribute('class', 'read-btn');
       }
     })
-
     // Attatch it to the 'didRead' div
     didRead.append(didReadBtn);
-
-
 
     // Remove button
     const remove = document.createElement('div');
@@ -103,18 +149,20 @@ function render() {
     trashCan.addEventListener('click', (event) => {
       
       // We will retrieve the book object using parentNode property.
-      let book = trashCan.parentNode.parentNode;
-      let dataBookId = book.getAttribute('data-book-id');
+      let bookNode = trashCan.parentNode.parentNode;
+      let dataBookId = bookNode.getAttribute('data-book-id');
       
       // Removes the book object in myLibrary, that is at the index of myLibrary
       // which corresponds to the dataBookId value
       myLibrary.splice(dataBookId, 1); 
 
+      // Remove from the firebase database
+      database.ref('Books/' + book.title).remove(); 
+
       // Calling render function, we will update the 'data-book-id' attribute
       // value again.
       render();
     })
-    
     // Attatch it to the 'remove' div 
     remove.append(trashCan);
     
@@ -124,7 +172,6 @@ function render() {
     // book container appended to bookList
     bookList.append(bookDiv);  
   })
-  
 }
 
 // Modal box
@@ -188,6 +235,7 @@ submitAddBook.addEventListener('click', (event) => {
   // If there's no missing values call 'addBookToLibrary'
   if(isMissingValues != true) {
     addBookToLibrary(title, author, numPages, didRead);
+    addBookToFirebase(title, author, numPages, didRead);
 
     // Close the form
     let bookInfoModal = document.getElementById('book-info-modal');
@@ -205,4 +253,23 @@ submitCancel.addEventListener('click', (event) => {
 })
 
 
+// 'value' event to read a static snapshot of the contents at a given path,
+// as they existed at the time of the event. It's triggered once when the
+// listener is attatched and again every time the data, including children, changes.
+
+// event callback is passed a snapshot containing all data at that location
+bookRef.on('value', function(snapshot) {
+  
+  // Integrate Firebase database with myLibrary
+  if (myLibrary.length === 0) {
+    // `snapshot.val()` will retrieve the data in the snapshot
+    let firebaseBooks = snapshot.val();
+    for (let bookProperty in firebaseBooks) {
+      book = firebaseBooks[bookProperty];
+      // Add it to myLibrary
+      myLibrary.push(book);
+    }
+    render();
+  }
+});
 
