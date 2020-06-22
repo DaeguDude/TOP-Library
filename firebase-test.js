@@ -23,6 +23,8 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
 
+
+
 function writeBookData(title, author, numPages, isRead) {
   database.ref('Book/' + title).set({
     title: title,

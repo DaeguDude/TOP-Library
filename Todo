@@ -22,8 +22,9 @@ Library:
           ✔ Read or Not @done(20-06-22 08:17)
                
       ☐ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library)
-        ☐ `Integrate your firebase storage to local storage` @critical 
+        ✔ Integrate your firebase storage to local storage @done(20-06-22 09:12)
         ☐ Update 'didRead' status both firebase and local storage
+          ☐ Can I access to the book property in the firebase?
 
 
 

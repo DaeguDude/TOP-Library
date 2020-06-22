@@ -19,34 +19,8 @@ firebase.initializeApp(firebaseConfig);
 // Get a reference to the database service
 let database = firebase.database();
 
+// bookReference
 let bookRef = database.ref('Book/');
-
-// 'value' event to read a static snapshot of the contents at a given path,
-// as they existed at the time of the event. It's triggered once when the
-// listener is attatched and again every time the data, including children, changes.
-
-// event callback is passed a snapshot containing all data at that location
-bookRef.on('value', function(snapshot) {
-  
-  // Integrate Firebase database with myLibrary
-  if (myLibrary.length === 0) {
-    // `snapshot.val()` will retrieve the data in the snapshot
-    let firebaseBooks = snapshot.val();
-    for (let bookProperty in firebaseBooks) {
-      book = firebaseBooks[bookProperty];
-      // Add it to myLibrary
-      myLibrary.push(book);
-    }
-    render();
-  }
-  
-});
-// The simplest way to delete data is to call remove() on a reference to the 
-// location of that data.
-// database.ref('Book/Grit').remove();
-
-
-
 
 // 'Book' Constructor
 function Book(title, author, numPages, didRead) {
@@ -148,11 +122,8 @@ function render() {
         didReadBtn.setAttribute('class', 'read-btn');
       }
     })
-
     // Attatch it to the 'didRead' div
     didRead.append(didReadBtn);
-
-
 
     // Remove button
     const remove = document.createElement('div');
@@ -181,7 +152,6 @@ function render() {
       // value again.
       render();
     })
-    
     // Attatch it to the 'remove' div 
     remove.append(trashCan);
     
@@ -191,7 +161,6 @@ function render() {
     // book container appended to bookList
     bookList.append(bookDiv);  
   })
-  
 }
 
 // Modal box
@@ -273,6 +242,28 @@ submitCancel.addEventListener('click', (event) => {
 })
 
 
+// 'value' event to read a static snapshot of the contents at a given path,
+// as they existed at the time of the event. It's triggered once when the
+// listener is attatched and again every time the data, including children, changes.
+
+// event callback is passed a snapshot containing all data at that location
+bookRef.on('value', function(snapshot) {
+  
+  // Integrate Firebase database with myLibrary
+  if (myLibrary.length === 0) {
+    // `snapshot.val()` will retrieve the data in the snapshot
+    let firebaseBooks = snapshot.val();
+    for (let bookProperty in firebaseBooks) {
+      book = firebaseBooks[bookProperty];
+      // Add it to myLibrary
+      myLibrary.push(book);
+    }
+    render();
+  }
+});
+// The simplest way to delete data is to call remove() on a reference to the 
+// location of that data.
+// database.ref('Book/Grit').remove();
 
 
 
