@@ -2,7 +2,7 @@ Library:
 
 
     Todos:
-      ☐ Merge all the works up until task6 @Working
+      ✔ Merge all the works up until task6 @Working @done(20-06-18 08:38)
           
         ✔ Organise all the codes into one branch @done(20-06-10 10:29)
           ✔ Number of pages can just take numbers @done(20-06-09 16:52)
@@ -10,19 +10,40 @@ Library:
              ✔ Check if radio button is checked @done(20-06-09 17:25)
              ✔ Check if all the inputs are filled before calling 'addBookToLibrary' @done(20-06-10 10:24)
           
-        ☐ Change some CSS
-          ☐ Alignment of flexbox table @critical 
+        ✔ Change some CSS @done(20-06-18 08:38)
+          ✔ Alignment of flexbox table  @done(20-06-18 08:38)
             ✔ [How to control ratios of flexbox?](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax) @done(20-06-11 20:24)
             ✔ Contents going out of the box @done(20-06-11 21:17) # height가 지정되어 있었음
             ✔ div안에 글자 중앙으로 모으기 @done(20-06-11 21:34)
             ✔ 폰트 크기 바꾸기 @done(20-06-15 16:17)
-            ☐ book-list 맨 위의 색깔 바꾸기
+            ✔ book-list 맨 위의 색깔 바꾸기 @done(20-06-18 08:38)
 
           ☐ Remove Button
           ☐ Read or Not
                
-      ☐ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library)
+      ✔ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library) @done(20-06-18 08:39)
         
+
+06/18:
+  ✔ Change CSS @done(20-06-18 11:29)
+    ✔ Make book table roundy @done(20-06-18 09:25)
+    ✔ Change min-height of Header and Footer @done(20-06-18 09:32)
+        This one's containing block's height is viewport('vh'), so it will always
+        take up the defined percentage of proportion in the viewport
+    ✔ Change the Read Status Button style @done(20-06-18 10:12)
+        ✔ How can you integrate it with not-read value? @done(20-06-18 10:12)
+    ✔ Change the Trash Can style @done(20-06-18 10:44)
+    ✔ Remove border @done(20-06-18 10:53)
+    ✔ Modal Background @done(20-06-18 11:20)
+      ✔ Font Color @done(20-06-18 11:20)
+      ✔ Font Size @done(20-06-18 11:20)
+      ✔ Button effect & style @done(20-06-18 11:20)
+
+  ✔ Refactor the Code(More Maintainable) @done(20-06-18 11:56)
+    ✔ Write readable comments @done(20-06-18 11:56)
+    ✔ Organize CSS code in the order @done(20-06-18 11:56)
+  
+  ☐ Hook your database up with your code
 
 
 
