@@ -3,7 +3,7 @@ let myLibrary = [];
 
 // Firebase configuration
 let firebaseConfig = {
-  apiKey: "AIzaSyDpoBAyxS50EyCJVaE7hFN7JjdKjm5Ce90",
+  apiKey: //firebase key
   authDomain: "library-9836a.firebaseapp.com",
   databaseURL: "https://library-9836a.firebaseio.com",
   projectId: "library-9836a",
@@ -184,10 +184,30 @@ newBookBtn.addEventListener('click', (event) => {
   bookInfoModal.style.zIndex = 1;
   bookInfoModal.style.backgroundColor = "rgba(0,0,0,0.7)";
   bookInfoModal.style.overflow = "auto";
-
   bookInfoModal.style.display = "flex";
   bookInfoModal.style.justifyContent = "center";
   bookInfoModal.style.alignItems = "center";
+
+  // Remove all the remaining values from previous input that might exist
+  let inputTitle = document.getElementById('modal-title').children[1];
+  let inputAuthor = document.getElementById('modal-author').children[1];
+  let inputNumPages = document.getElementById('modal-num-pages').children[1];
+  let blankButtonMsg = document.getElementsByClassName('blank-button-msg')[0];
+
+  // First remove class that presents the blank input
+  inputTitle.classList.remove('blank-input');
+  inputAuthor.classList.remove('blank-input');
+  inputNumPages.classList.remove('blank-input');
+  // error message to 'display:none'
+  blankButtonMsg.style.display = 'none';
+
+  // Now remove all the input values that user might have typed
+  inputTitle.value = '';
+  inputAuthor.value = '';
+  inputNumPages.value = '';
+  // Now make radio button to nothing is clicked
+  document.getElementById('yes').checked = false;
+  document.getElementById('no').checked = false;
 });
 
 // Add a book & Cancel button in Modal
@@ -226,11 +246,45 @@ submitAddBook.addEventListener('click', (event) => {
   // Check for the missing values before calling 'addBookToLibrary'
   let isMissingValues = false;
   let userInputs = [title, author, numPages, didRead];
-  userInputs.forEach(userInput => {
+  userInputs.forEach((userInput, index) => {
+    let inputTitle = document.getElementById('modal-title').children[1];
+    let inputAuthor = document.getElementById('modal-author').children[1];
+    let inputNumPages = document.getElementById('modal-num-pages').children[1];
+    let blankButtonMsg = document.getElementsByClassName('blank-button-msg')[0];
+
     if(userInput === '') {
       isMissingValues = true;
+      switch (index) {
+        case 0:
+          inputTitle.classList.add('blank-input');
+          break;
+        case 1:
+          inputAuthor.classList.add('blank-input');
+          break;
+        case 2:
+          inputNumPages.classList.add('blank-input');
+          break;
+        case 3:
+          blankButtonMsg.style.display = 'block';
+          break;
+      }
+    } else {
+      switch (index) {
+        case 0:
+          inputTitle.classList.remove('blank-input');
+          break;
+        case 1:
+          inputAuthor.classList.remove('blank-input');
+          break;
+        case 2:
+          inputNumPages.classList.remove('blank-input');
+          break;
+        case 3:
+          blankButtonMsg.style.display = 'none';
+          break;
+      }
     }
-  })
+  });
 
   // If there's no missing values call 'addBookToLibrary'
   if(isMissingValues != true) {

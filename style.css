@@ -56,6 +56,17 @@ body {
   margin-top: 5px;
 }
 
+/* When form is blank, presents the specific css */
+.blank-input {
+  border: 2px solid red;
+}
+
+.blank-button-msg {
+  color: red;
+  font-size: 80%;
+  display: none;
+}
+
 /* Make arrow disappering in the input numPages */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
