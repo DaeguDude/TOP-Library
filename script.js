@@ -20,7 +20,7 @@ firebase.initializeApp(firebaseConfig);
 let database = firebase.database();
 
 // bookReference
-let bookRef = database.ref('Book/');
+let bookRef = database.ref('Books/');
 
 // 'Book' Constructor
 function Book(title, author, numPages, didRead) {
@@ -37,7 +37,7 @@ function addBookToLibrary(title, author, numPages, didRead) {
 }
 
 function addBookToFirebase(title, author, numPages, didRead) {
-  database.ref('Book/' + title).set({
+  database.ref('Books/' + title).set({
     title: title,
     author: author,
     numPages: numPages,
@@ -113,11 +113,22 @@ function render() {
     // This button toggles between 'read' and 'not-read'
     didReadBtn.addEventListener('click', (event) => {
       if(book.didRead === true) {
+        
+        // Change the local book status
         book.didRead = false;
+        // Change the status in Firebase
+        database.ref('Books/' + book.title).update({
+          didRead: false
+        })
+
         didReadBtn.textContent = 'Not Read';
         didReadBtn.setAttribute('class', 'not-read-btn');
+
       } else {
         book.didRead = true;
+        database.ref('Books/' + book.title).update({
+          didRead: true
+        })
         didReadBtn.textContent = "Read";
         didReadBtn.setAttribute('class', 'read-btn');
       }
@@ -146,7 +157,7 @@ function render() {
       myLibrary.splice(dataBookId, 1); 
 
       // Remove from the firebase database
-      database.ref('Book/' + book.title).remove(); 
+      database.ref('Books/' + book.title).remove(); 
 
       // Calling render function, we will update the 'data-book-id' attribute
       // value again.
@@ -261,9 +272,4 @@ bookRef.on('value', function(snapshot) {
     render();
   }
 });
-// The simplest way to delete data is to call remove() on a reference to the 
-// location of that data.
-// database.ref('Book/Grit').remove();
-
-
 
