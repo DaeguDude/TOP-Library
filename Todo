@@ -2,11 +2,7 @@ Library:
 
 
     Todos:
-<<<<<<< HEAD
-      ✔ Merge all the works up until task6 @Working @done(20-06-18 08:38)
-=======
       ✔ Merge all the works up until task6 @done(20-06-22 08:19)
->>>>>>> read-status
           
         ✔ Organise all the codes into one branch @done(20-06-10 10:29)
           ✔ Number of pages can just take numbers @done(20-06-09 16:52)
@@ -14,56 +10,29 @@ Library:
              ✔ Check if radio button is checked @done(20-06-09 17:25)
              ✔ Check if all the inputs are filled before calling 'addBookToLibrary' @done(20-06-10 10:24)
           
-<<<<<<< HEAD
-        ✔ Change some CSS @done(20-06-18 08:38)
-          ✔ Alignment of flexbox table  @done(20-06-18 08:38)
-=======
         ✔ Change some CSS @done(20-06-22 08:19)
           ✔ Alignment of flexbox table @done(20-06-22 08:19)
->>>>>>> read-status
             ✔ [How to control ratios of flexbox?](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax) @done(20-06-11 20:24)
             ✔ Contents going out of the box @done(20-06-11 21:17) # height가 지정되어 있었음
             ✔ div안에 글자 중앙으로 모으기 @done(20-06-11 21:34)
             ✔ 폰트 크기 바꾸기 @done(20-06-15 16:17)
-<<<<<<< HEAD
-            ✔ book-list 맨 위의 색깔 바꾸기 @done(20-06-18 08:38)
-=======
             ✔ book-list 맨 위의 색깔 바꾸기 @done(20-06-22 08:17)
->>>>>>> read-status
 
           ✔ Remove Button @done(20-06-22 08:17)
           ✔ Read or Not @done(20-06-22 08:17)
                
-<<<<<<< HEAD
-      ✔ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library) @done(20-06-18 08:39)
-        
-=======
-      ☐ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library)
+      ✔ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library) @done(20-06-22 14:47)
         ✔ Integrate your firebase storage to local storage @done(20-06-22 09:12)
-        ☐ Update 'didRead' status both firebase and local storage
-          ☐ Can I access to the book property in the firebase?
->>>>>>> read-status
+        ✔ Update 'didRead' status both firebase and local storage @done(20-06-22 14:45)
 
-06/18:
-  ✔ Change CSS @done(20-06-18 11:29)
-    ✔ Make book table roundy @done(20-06-18 09:25)
-    ✔ Change min-height of Header and Footer @done(20-06-18 09:32)
-        This one's containing block's height is viewport('vh'), so it will always
-        take up the defined percentage of proportion in the viewport
-    ✔ Change the Read Status Button style @done(20-06-18 10:12)
-        ✔ How can you integrate it with not-read value? @done(20-06-18 10:12)
-    ✔ Change the Trash Can style @done(20-06-18 10:44)
-    ✔ Remove border @done(20-06-18 10:53)
-    ✔ Modal Background @done(20-06-18 11:20)
-      ✔ Font Color @done(20-06-18 11:20)
-      ✔ Font Size @done(20-06-18 11:20)
-      ✔ Button effect & style @done(20-06-18 11:20)
-
-  ✔ Refactor the Code(More Maintainable) @done(20-06-18 11:56)
-    ✔ Write readable comments @done(20-06-18 11:56)
-    ✔ Organize CSS code in the order @done(20-06-18 11:56)
-  
-  ☐ Hook your database up with your code
+      Final:
+        ✔ In the popup box, show the error message when something is blank @done(20-06-22 17:44)
+          ✔ When Add a new Button is clicked, everything should be fresh @done(20-06-22 17:44)
+        ☐ `Change some css to adapt to the various devices`
+            ☐ Make a book table responsvie! @critical 
+              ☐ Flexbox text overflowing(https://stackoverflow.com/questions/34283692/flexbox-div-text-wrapping)
+        ☐ How to hide your APIkey on Github
+          
 
 
 

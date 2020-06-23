@@ -3,7 +3,7 @@ let myLibrary = [];
 
 // Firebase configuration
 let firebaseConfig = {
-  apiKey: //firebase key
+  // apiKey: "AIzaSyDpoBAyxS50EyCJVaE7hFN7JjdKjm5Ce90",
   authDomain: "library-9836a.firebaseapp.com",
   databaseURL: "https://library-9836a.firebaseio.com",
   projectId: "library-9836a",

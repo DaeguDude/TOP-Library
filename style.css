@@ -121,8 +121,8 @@ input::-webkit-inner-spin-button {
 /* header section  */
 /* ------------------------------------------------------- */
 #header {
-  min-height: 15%;
-  flex: 1.5 0 auto;
+  min-height: 15vh;
+  flex: 0 0 auto;
   border: 1px solid black;
   background: #2a1e20;
   color: #ffffff;
@@ -162,15 +162,15 @@ input::-webkit-inner-spin-button {
 /* ------------------------------------------------------- */
 #main {
   flex: 7 0 auto;
-  border: 1px solid black;
+  /* Stay in the document flow */
+  position: relative;
 }
 
 #book-list {
   width: 100%;
   height: 100%;
   font-size: 1.2em;
-  
-  border: 1px solid black;
+
   padding: 2% 5%; /* vertical & horizontal */
   display: flex;
   
@@ -286,8 +286,8 @@ there is not space avaiable */
 /* ------------------------------------------------------- */
 /* footer section */
 #footer {
-  min-height: 10%;
-  flex: 0.5 0 auto;
+  min-height: 10vh;
+  flex: 0 0 auto;
   border: 1px solid black;
   background: #b0acab;
 
@@ -303,11 +303,10 @@ there is not space avaiable */
 }
 
 #contact span {
-  font-size: 40px;
+  font-size: 20px;
 }
 
 #contact a {
-  font-size: 20px;
   text-decoration: none;
   color: white;
 }
@@ -316,6 +315,42 @@ there is not space avaiable */
   color: blue;
 }
 
+
+
+/* Media Query - width is less than 850px */
+@media only screen and (max-width: 850px) {
+  body {
+    background-color: black;
+    font-size: 0.2em;
+  }
+
+  .book {
+    width: 100%;
+    min-width: 0px;
+  }
+
+  #title {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+  
+  #author {
+    flex: 0 0 26%;
+  }
+  
+  #num-pages {
+    flex: 0 0 13%;
+  }
+  
+  #read-not-read {
+    flex: 0 0 13%;
+  }
+  
+  #remove {
+    flex: 0 0 6.5%;
+  }
+  
+}
 
   
 
