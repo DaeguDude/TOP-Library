@@ -31,7 +31,9 @@ Library:
         ✔ Change some css to adapt to the various devices @done(20-06-24 19:27)
             ✔ Make a book table responsvie! @done(20-06-24 19:27)
               ✔ Flexbox text overflowing(https://developer.mozilla.org/en-US/docs/Web/CSS/word-break);
-        ☐ How to hide your APIkey on Github
+        ✔ How to hide your APIkey on Github @done(20-06-24 20:14)
+
+      Let's write README!
           
 
 
