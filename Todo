@@ -28,9 +28,9 @@ Library:
       Final:
         ✔ In the popup box, show the error message when something is blank @done(20-06-22 17:44)
           ✔ When Add a new Button is clicked, everything should be fresh @done(20-06-22 17:44)
-        ☐ `Change some css to adapt to the various devices`
-            ☐ Make a book table responsvie! @critical 
-              ☐ Flexbox text overflowing(https://stackoverflow.com/questions/34283692/flexbox-div-text-wrapping)
+        ✔ Change some css to adapt to the various devices @done(20-06-24 19:27)
+            ✔ Make a book table responsvie! @done(20-06-24 19:27)
+              ✔ Flexbox text overflowing(https://developer.mozilla.org/en-US/docs/Web/CSS/word-break);
         ☐ How to hide your APIkey on Github
           
 

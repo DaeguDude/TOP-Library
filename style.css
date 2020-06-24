@@ -31,7 +31,7 @@ body {
 .modal-flex-items {
   /* flex: <flex-grow> <flex-shrink> <flex-basis> */
   flex: 1 1 auto;
-  font-size: 25px;
+  font-size: 1.3em;
 }
 
 .modal-flex-items input[type=text] {
@@ -134,13 +134,13 @@ input::-webkit-inner-spin-button {
 }
 
 #header button {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: #daa520;
   border: none;
   outline: none;
   color: black;
-  padding: 15px 32px;
-  font-size: 16px;
+  padding: 12px 25px;
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0 4px #fff;
@@ -169,7 +169,7 @@ input::-webkit-inner-spin-button {
 #book-list {
   width: 100%;
   height: 100%;
-  font-size: 1.2em;
+  font-size: 1em;
 
   padding: 2% 5%; /* vertical & horizontal */
   display: flex;
@@ -324,14 +324,22 @@ there is not space avaiable */
 
 /* Media Query - width is less than 850px */
 @media only screen and (max-width: 850px) {
-  body {
-    background-color: black;
-    font-size: 0.6em;
+  /* body {
+    font-size: 0.8rem;
+  } */
+
+  #modal-flex-container h1 {
+    font-size: 30px;
+  }
+
+  #book-list {
+    min-width: 760px;
   }
 
   .book {
     width: 100%;
     min-width: 0px;
+    font-size: 1rem;
   }
 
   #title {
@@ -354,7 +362,36 @@ there is not space avaiable */
   #remove {
     flex: 0 0 6.5%;
   }
-  
+}
+
+@media only screen and (max-height: 800px) {
+  #footer {
+    display: none;
+  }
+
+  #modal-header {
+    display: none;
+  }
+
+  #modal-flex-container {
+    min-height: 350px;
+  }
+
+  #container {
+    min-width: 760px;
+  }
+
+  #header {
+    min-height: 120px;
+  }
+
+  #main {
+    min-height: 85vh;
+  }
+
+  #submit-area button{
+    font-size: 1em;
+  }
 }
 
   
