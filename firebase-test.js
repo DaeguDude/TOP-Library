@@ -7,7 +7,7 @@
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyDpoBAyxS50EyCJVaE7hFN7JjdKjm5Ce90",
+  // apiKey: 
   authDomain: "library-9836a.firebaseapp.com",
   databaseURL: "https://library-9836a.firebaseio.com",
   projectId: "library-9836a",
