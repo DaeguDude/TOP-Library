@@ -61,3 +61,12 @@ I need to know how to hide API key on Github
 - Change css to adapt to the various devices
 - [How do you hide API key on Github?](https://developer.github.com/v3/actions/secrets/)
 (https://www.youtube.com/watch?v=-xIXFxuZCMI)
+
+## 06/24
+
+- Change CSS in Many Devices
+    - book table responsive
+        - Flexbox text overflowing
+    
+- how to hide apikey
+

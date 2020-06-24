@@ -196,7 +196,11 @@ input::-webkit-inner-spin-button {
 }
 
 .book-items {
-  padding: 10px 0px;
+  /* Prevents texts without linebreaks(etc. space)
+   overflowing the flex item */
+  word-break: break-all;
+
+  padding: 10px 20px;
 
   display: flex;
   justify-content: center; /* main-axis */
@@ -223,6 +227,7 @@ there is not space avaiable */
 
 #read-not-read {
   flex: 1 0 100px;
+  padding: 10px 0px;
 }
 
 #remove {
@@ -230,7 +235,7 @@ there is not space avaiable */
 }
 
 .read-btn {
-  height: 100%;
+  height: 30px;
   width: 70%;
   background: #274b51;
   color: white;
@@ -251,7 +256,7 @@ there is not space avaiable */
 
 /* not-read button */
 .not-read-btn {
-  height: 100%;
+  height: 30px;
   width: 70%;
   background: #8e3424;
   color: white;
@@ -321,7 +326,7 @@ there is not space avaiable */
 @media only screen and (max-width: 850px) {
   body {
     background-color: black;
-    font-size: 0.2em;
+    font-size: 0.6em;
   }
 
   .book {
