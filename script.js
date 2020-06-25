@@ -1,9 +1,13 @@
 // Simple array to contain the book objects
 let myLibrary = [];
 
+// 
+
+//
+
 // Firebase configuration
 let firebaseConfig = {
-  apiKey: "TYPE_API_KEY",
+  apiKey: firebaseKey,
   authDomain: "library-9836a.firebaseapp.com",
   databaseURL: "https://library-9836a.firebaseio.com",
   projectId: "library-9836a",

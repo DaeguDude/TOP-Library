@@ -40,3 +40,9 @@ This one was a bit of challenging, because there was not good tutorials and I fe
 - Document Object Model
     - What is Node, Element?
 
+## Conclusion
+
+There was a lot of googling to make this works, but what's important is I got it worked. 
+
+And there's an advice to remember from a TOP member says that if you try to understand the concept you've just learned perfectly, it wouldn't really work well because you don't see the use of it yet. Therefore it might be better you try to understand it using over and over so you see the use of it, and then try to understand the concept deeply!
+

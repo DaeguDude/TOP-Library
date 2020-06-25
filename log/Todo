@@ -21,20 +21,11 @@ Library:
           ✔ Remove Button @done(20-06-22 08:17)
           ✔ Read or Not @done(20-06-22 08:17)
                
-      ✔ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library) @done(20-06-22 14:47)
+      ☐ Task 7: [local Storage](https://www.theodinproject.com/courses/javascript/lessons/library)
         ✔ Integrate your firebase storage to local storage @done(20-06-22 09:12)
-        ✔ Update 'didRead' status both firebase and local storage @done(20-06-22 14:45)
-
-      Final:
-        ✔ In the popup box, show the error message when something is blank @done(20-06-22 17:44)
-          ✔ When Add a new Button is clicked, everything should be fresh @done(20-06-22 17:44)
-        ✔ Change some css to adapt to the various devices @done(20-06-24 19:27)
-            ✔ Make a book table responsvie! @done(20-06-24 19:27)
-              ✔ Flexbox text overflowing(https://developer.mozilla.org/en-US/docs/Web/CSS/word-break);
-        ✔ How to hide your APIkey on Github @done(20-06-24 20:14)
-
-      Let's write README!
-          
+        ☐ Update 'didRead' status both firebase and local storage
+          ☐ Can I access to the book property in the firebase?
+          https://stackoverflow.com/questions/47723956/is-there-a-simple-way-to-update-a-single-record-property-in-firebase
 
 
 
