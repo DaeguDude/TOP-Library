@@ -27,11 +27,13 @@ let database = firebase.database();
 let bookRef = database.ref('Books/');
 
 // 'Book' Constructor
-function Book(title, author, numPages, didRead) {
-  this.title = title 
-  this.author = author
-  this.numPages = numPages
-  this.didRead = didRead
+class Book {
+  constructor(title, author, numPages, didRead) {
+      this.title = title;
+      this.author = author;
+      this.numPages = numPages;
+      this.didRead = didRead;
+  }
 }
 
 // Add a Book object to 'myLibrary' array
