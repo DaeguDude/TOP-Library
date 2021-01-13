@@ -5,12 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
-  <script src="./key.js"></script>
   <script src="https://kit.fontawesome.com/fadac8530c.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- MODAL HTML -->
+  <!-- <div class="book-info-modal">
+    <form action="" method="get" class="form-example">
+      
+      <div class="form-example">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" required minlength="1" maxlength="50">
+      </div>
+
+      <div class="form-example">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" required minlength="1" maxlength="50">
+      </div>
+
+      <div class="form-example">
+        <label for="numPages">Number of Pages</label>
+        <input type="number" name="numPages" id="numPages" min="1" max="100000" required>
+      </div>
+
+      <div class="form-example">
+        <label for="yes">Yes</label>
+        <input type="radio" required name="yes-no" id="yes" value="yes">
+        <label for="no">No</label>
+        <input type="radio" required name="yes-no" id="no" value="no">
+      </div>
+
+      <div class="form-example">
+        <input type="submit" value="Add Book">
+        <input type="button" id="close" value="close">
+      </div>
+
+    </form>
+  </div> -->
   <div id="book-info-modal">
     <div id="modal-flex-container">
       
@@ -98,12 +129,8 @@
 <!-- You need to include this SDK to use `firebase.database()` -->
 <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-database.js"></script>
 
-<!-- <script src="firebase-test.js"></script> -->
-
 <!-- Main Javascript -->
-<script src="scriptOriginal.js"></script>
+<script src="script.js"></script>
 
-<!-- Original File with API key -->
-<!-- <script src="scriptOrginal.js"></script> -->
 
 </html>

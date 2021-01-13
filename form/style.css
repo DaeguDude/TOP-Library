@@ -1,0 +1,33 @@
+.book-info-modal {
+  height: 200px;
+  width: 500px;
+  border: 1px solid #bebebe;
+  background: #122820;
+  color: #fff;
+}
+
+form.form-example {
+  display: table;
+}
+
+div.form-example {
+  display: table-row;
+}
+
+label, input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+label {
+  padding-right: 10px;
+}
+
+input[type="button"]#close {
+  margin-left: 30px;
+}
+
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+

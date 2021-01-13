@@ -171,109 +171,6 @@ function render() {
   });
 }
 
-// Modal box
-// If 'Add a New Book' is clicked, it will pop up the modal box for user to
-// fill out the book information.
-const newBookBtn = document.getElementById("new-book-btn");
-
-// Add a book & Cancel button in Modal
-const submitAddBook = document.getElementById("submit-add-book");
-const submitCancel = document.getElementById("submit-cancel");
-
-// If user clicks 'Add a Book' button in the modal box, we will read the
-// all the information that user has filled out.
-submitAddBook.addEventListener("click", (event) => {
-  // Reading all the values
-  // This variables will be used as arguments for 'addBookToLibrary'
-  let title = document.getElementById("modal-title").children[1].value;
-  let author = document.getElementById("modal-author").children[1].value;
-  let numPages = document.getElementById("modal-num-pages").children[1].value;
-  let didRead = "";
-
-  // Retrieve radio button elements
-  let yesRadio = document.getElementById("yes");
-  let noRadio = document.getElementById("no");
-  let radioList = [yesRadio, noRadio];
-
-  // Check radio button values and insert corresponding values to the variable
-  // 'didRead'
-  for (let i = 0; i < radioList.length; i++) {
-    if (radioList[i].checked === true) {
-      if (i === 0) {
-        didRead = true;
-      } else {
-        didRead = false;
-      }
-    }
-  }
-
-  // Check for the missing values before calling 'addBookToLibrary'
-  let isMissingValues = false;
-  let userInputs = [title, author, numPages, didRead];
-  userInputs.forEach((userInput, index) => {
-    let inputTitle = document.getElementById("modal-title").children[1];
-    let inputAuthor = document.getElementById("modal-author").children[1];
-    let inputNumPages = document.getElementById("modal-num-pages").children[1];
-    let blankButtonMsg = document.getElementsByClassName("blank-button-msg")[0];
-
-    if (userInput === "") {
-      isMissingValues = true;
-      switch (index) {
-        case 0:
-          inputTitle.classList.add("blank-input");
-          break;
-        case 1:
-          inputAuthor.classList.add("blank-input");
-          break;
-        case 2:
-          inputNumPages.classList.add("blank-input");
-          break;
-        case 3:
-          blankButtonMsg.style.display = "block";
-          break;
-      }
-    } else {
-      switch (index) {
-        case 0:
-          inputTitle.classList.remove("blank-input");
-          break;
-        case 1:
-          inputAuthor.classList.remove("blank-input");
-          break;
-        case 2:
-          inputNumPages.classList.remove("blank-input");
-          break;
-        case 3:
-          blankButtonMsg.style.display = "none";
-          break;
-      }
-    }
-  });
-
-  // If there's no missing values call 'addBookToLibrary'
-  if (isMissingValues != true) {
-    addBookToLibrary(title, author, numPages, didRead);
-    addBookToFirebase(title, author, numPages, didRead);
-
-    // Close the form
-    let bookInfoModal = document.getElementById("book-info-modal");
-    bookInfoModal.style = "";
-
-    // Render on the screen
-    render();
-  }
-});
-
-// If 'cancel' button is clicked, close the form
-submitCancel.addEventListener("click", (event) => {
-  let bookInfoModal = document.getElementById("book-info-modal");
-  bookInfoModal.style = "";
-});
-
-// 'value' event to read a static snapshot of the contents at a given path,
-// as they existed at the time of the event. It's triggered once when the
-// listener is attatched and again every time the data, including children, changes.
-
 // event callback is passed a snapshot containing all data at that location
 bookRef.on("value", function (snapshot) {
   // Integrate Firebase database with myLibrary
@@ -289,4 +186,39 @@ bookRef.on("value", function (snapshot) {
   }
 });
 
-const form = {};
+function activateNewBookBtn() {
+  const newBookBtn = document.getElementById("new-book-btn");
+  newBookBtn.addEventListener("click", () => {});
+}
+
+const newBookBtn = {
+  elem: document.getElementById("new-book-btn"),
+  activate: function () {
+    this.elem.addEventListener("click", () => {
+      form.show();
+    });
+  },
+};
+
+const form = {
+  bookInfoForm: document.querySelector(".book-info-modal"),
+  closeBtn: document.querySelector("input#close"),
+  hide: function () {
+    this.bookInfoForm.style.display = "none";
+  },
+  show: function () {
+    this.bookInfoForm.style.display = "block";
+  },
+
+  showThis: function () {
+    console.log(this);
+  },
+
+  activateCloseBtn: function () {
+    this.closeBtn.addEventListener("click", );
+  },
+};
+
+form.hide();
+form.activateCloseBtn();
+newBookBtn.activate();
