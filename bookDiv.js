@@ -1,3 +1,35 @@
+function removeBooksFromDisplay(books) {
+  const booksLength = books.children.length;
+  for (let i = booksLength - 1; i >= 1; i--) {
+    books.removeChild(books.children[i]);
+  }
+}
+
+function addBooksToDisplay(bookList) {
+  myLibrary.forEach((book, index) => {
+    // book container
+    const bookDiv = createBookDiv(index);
+    const title = createTitle(book);
+    const author = createAuthor(book);
+    const numPages = createNumPages(book);
+    const didRead = createDidRead();
+
+    // Button that shows the read status
+    const didReadBtn = createDidReadBtn(book);
+    toggleReadStatusOnclick(didReadBtn, book);
+    didRead.append(didReadBtn);
+
+    const remove = createRemove();
+    const trashCan = createTrashCan();
+
+    removeBookOnClick(trashCan, myLibrary, render);
+    remove.append(trashCan);
+
+    bookDiv.append(title, author, numPages, didRead, remove);
+    bookList.append(bookDiv);
+  });
+
+
 // Simple array to contain the book objects
 function createBookDiv(index) {
   const bookDiv = document.createElement("div");
@@ -85,4 +117,20 @@ function createTrashCan() {
   trashCan.setAttribute("class", "fas fa-trash");
 
   return trashCan;
+}
+
+function removeBookOnClick(trashCan, myLibrary, render) {
+  trashCan.addEventListener("click", (event) => {
+    // We will retrieve the book object using parentNode property.
+    let bookNode = trashCan.parentNode.parentNode;
+    let dataBookId = bookNode.getAttribute("data-book-id");
+
+    // Removes the book object in myLibrary, that is at the index of myLibrary
+    // which corresponds to the dataBookId value
+    myLibrary.splice(dataBookId, 1);
+
+    // Calling render function, we will update the 'data-book-id' attribute
+    // value again.
+    render();
+  });
 }

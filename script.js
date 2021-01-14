@@ -1,6 +1,5 @@
 const myLibrary = [];
 
-// 'Book' Constructor
 class Book {
   constructor(title, author, numPages, didRead) {
     this.title = title;
@@ -10,51 +9,15 @@ class Book {
   }
 }
 
-// Add a Book object to 'myLibrary' array
 function addBookToLibrary(title, author, numPages, didRead) {
   book = new Book(title, author, numPages, didRead);
   myLibrary.push(book);
 }
 
-// Print all the book objects in myLibrary on the screen
 function render() {
-  // FIX - Maybe this rendering can be better with other approach.
-  // Now it removes all the children of book-list which contains book elements,
-  // and loop through 'myLibrary' and attatch on the 'book-list' again.
-
-  // Get 'book-list' element, and removes all book objects
-  // except the top row.
   const bookList = document.getElementById("book-list");
-  const bookListLength = bookList.children.length;
-
-  for (let i = bookListLength - 1; i >= 1; i--) {
-    bookList.removeChild(bookList.children[i]);
-  }
-
-  // Loop through myLibrary array, and attatch it to 'book-list' to show
-  // on the screen
-  myLibrary.forEach((book, index) => {
-    // book container
-    const bookDiv = createBookDiv(index);
-    const title = createTitle(book);
-    const author = createAuthor(book);
-    const numPages = createNumPages(book);
-    const didRead = createDidRead();
-
-    // Button that shows the read status
-    const didReadBtn = createDidReadBtn(book);
-    toggleReadStatusOnclick(didReadBtn, book);
-    didRead.append(didReadBtn);
-
-    const remove = createRemove();
-    const trashCan = createTrashCan();
-
-    removeBookOnClick(trashCan, myLibrary, render);
-    remove.append(trashCan);
-
-    bookDiv.append(title, author, numPages, didRead, remove);
-    bookList.append(bookDiv);
-  });
+  removeBooksFromDisplay(bookList);
+  addBooksToDisplay(bookList);
 }
 
 // Modal box
@@ -186,7 +149,41 @@ submitCancel.addEventListener("click", (event) => {
   bookInfoModal.style = "";
 });
 
-//
+// *********************************************************
+// Helper Functions
+// *********************************************************
+
+function removeBooksFromDisplay(books) {
+  const booksLength = books.children.length;
+  for (let i = booksLength - 1; i >= 1; i--) {
+    books.removeChild(books.children[i]);
+  }
+}
+
+function addBooksToDisplay(bookList) {
+  myLibrary.forEach((book, index) => {
+    // book container
+    const bookDiv = createBookDiv(index);
+    const title = createTitle(book);
+    const author = createAuthor(book);
+    const numPages = createNumPages(book);
+    const didRead = createDidRead();
+
+    // Button that shows the read status
+    const didReadBtn = createDidReadBtn(book);
+    toggleReadStatusOnclick(didReadBtn, book);
+    didRead.append(didReadBtn);
+
+    const remove = createRemove();
+    const trashCan = createTrashCan();
+
+    removeBookOnClick(trashCan, myLibrary, render);
+    remove.append(trashCan);
+
+    bookDiv.append(title, author, numPages, didRead, remove);
+    bookList.append(bookDiv);
+  });
+}
 
 function createBookDiv(index) {
   const bookDiv = document.createElement("div");
