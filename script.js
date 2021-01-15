@@ -1,5 +1,18 @@
 const myLibrary = [];
 
+const newBookBtn = document.getElementById("new-book-btn");
+newBookBtn.addEventListener("click", openModal);
+
+const submitAddBook = document.getElementById("submit-add-book");
+submitAddBook.addEventListener("click", addBookBtnHandler);
+
+const submitCancel = document.getElementById("submit-cancel");
+submitCancel.addEventListener("click", closeModal);
+
+// *********************************************************
+// Helper Functions
+// *********************************************************
+
 class Book {
   constructor(title, author, numPages, didRead) {
     this.title = title;
@@ -10,7 +23,7 @@ class Book {
 }
 
 function addBookToLibrary(title, author, numPages, didRead) {
-  book = new Book(title, author, numPages, didRead);
+  const book = new Book(title, author, numPages, didRead);
   myLibrary.push(book);
 }
 
@@ -19,76 +32,6 @@ function render() {
   removeBooksFromDisplay(bookList);
   addBooksToDisplay(bookList);
 }
-
-const newBookBtn = document.getElementById("new-book-btn");
-newBookBtn.addEventListener("click", openModal);
-
-// Add a book & Cancel button in Modal
-const submitAddBook = document.getElementById("submit-add-book");
-const submitCancel = document.getElementById("submit-cancel");
-submitAddBook.addEventListener("click", addBookBtnHandler);
-function addBookBtnHandler() {
-  const bookInfo = getBookInfo();
-
-  // Check for the missing values before calling 'addBookToLibrary'
-  let isMissingValues = false;
-
-  let userInputs = Object.values(bookInfo);
-  userInputs.forEach((userInput, index) => {
-    let inputTitle = document.getElementById("modal-title").children[1];
-    let inputAuthor = document.getElementById("modal-author").children[1];
-    let inputNumPages = document.getElementById("modal-num-pages").children[1];
-    let blankButtonMsg = document.getElementsByClassName("blank-button-msg")[0];
-
-    if (userInput === "") {
-      isMissingValues = true;
-      switch (index) {
-        case 0:
-          inputTitle.classList.add("blank-input");
-          break;
-        case 1:
-          inputAuthor.classList.add("blank-input");
-          break;
-        case 2:
-          inputNumPages.classList.add("blank-input");
-          break;
-        case 3:
-          blankButtonMsg.style.display = "block";
-          break;
-      }
-    } else {
-      switch (index) {
-        case 0:
-          inputTitle.classList.remove("blank-input");
-          break;
-        case 1:
-          inputAuthor.classList.remove("blank-input");
-          break;
-        case 2:
-          inputNumPages.classList.remove("blank-input");
-          break;
-        case 3:
-          blankButtonMsg.style.display = "none";
-          break;
-      }
-    }
-  });
-
-  // If there's no missing values call 'addBookToLibrary'
-  if (isMissingValues != true) {
-    addBookToLibrary(...userInputs);
-    closeModal();
-
-    // Render on the screen
-    render();
-  }
-}
-
-submitCancel.addEventListener("click", closeModal);
-
-// *********************************************************
-// Helper Functions
-// *********************************************************
 
 function removeBooksFromDisplay(books) {
   const booksLength = books.children.length;
@@ -288,4 +231,62 @@ function getBookInfo() {
   }
 
   return { title, author, numPages, didRead };
+}
+
+function checkMissingValues(userInputs) {
+  const inputTitle = document.querySelector("#modal-title input");
+  const inputAuthor = document.querySelector("#modal-author input");
+  const inputNumPages = document.querySelector("#modal-num-pages input");
+  const blankButtonMsg = document.querySelector(".blank-button-msg");
+
+  let isMissingValues = false;
+  userInputs.forEach((userInput, index) => {
+    if (userInput === "") {
+      isMissingValues = true;
+      switch (index) {
+        case 0:
+          inputTitle.classList.add("blank-input");
+          break;
+        case 1:
+          inputAuthor.classList.add("blank-input");
+          break;
+        case 2:
+          inputNumPages.classList.add("blank-input");
+          break;
+        case 3:
+          blankButtonMsg.style.display = "block";
+          break;
+      }
+    } else {
+      switch (index) {
+        case 0:
+          inputTitle.classList.remove("blank-input");
+          break;
+        case 1:
+          inputAuthor.classList.remove("blank-input");
+          break;
+        case 2:
+          inputNumPages.classList.remove("blank-input");
+          break;
+        case 3:
+          blankButtonMsg.style.display = "none";
+          break;
+      }
+    }
+  });
+
+  return isMissingValues;
+}
+
+function addBookBtnHandler() {
+  const bookInfo = getBookInfo();
+
+  const userInputs = Object.values(bookInfo);
+  let isMissingValues = checkMissingValues(userInputs);
+
+  if (isMissingValues != true) {
+    addBookToLibrary(...userInputs);
+    closeModal();
+    render();
+  }
 }

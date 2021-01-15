@@ -1,27 +1,53 @@
 function addBookBtnHandler() {
   // Reading all the values
   // This variables will be used as arguments for 'addBookToLibrary'
-  let title = document.getElementById("modal-title").children[1].value;
-  let author = document.getElementById("modal-author").children[1].value;
-  let numPages = document.getElementById("modal-num-pages").children[1].value;
+  // let title = document.getElementById("modal-title").children[1].value;
+  // let author = document.getElementById("modal-author").children[1].value;
+  // let numPages = document.getElementById("modal-num-pages").children[1].value;
 
-  let yesRadio = document.getElementById("yes");
-  let noRadio = document.getElementById("no");
-  let radioList = [yesRadio, noRadio];
-  let didRead = "";
-  for (let i = 0; i < radioList.length; i++) {
-    if (radioList[i].checked === true) {
-      if (i === 0) {
-        didRead = true;
-      } else {
-        didRead = false;
+  // let yesRadio = document.getElementById("yes");
+  // let noRadio = document.getElementById("no");
+  // let radioList = [yesRadio, noRadio];
+  // let didRead = "";
+  // for (let i = 0; i < radioList.length; i++) {
+  //   if (radioList[i].checked === true) {
+  //     if (i === 0) {
+  //       didRead = true;
+  //     } else {
+  //       didRead = false;
+  //     }
+  //   }
+  // }
+
+  const bookInfo = getBookInfo();
+  console.log(bookInfo);
+
+  function getBookInfo() {
+    let title = document.getElementById("modal-title").children[1].value;
+    let author = document.getElementById("modal-author").children[1].value;
+    let numPages = document.getElementById("modal-num-pages").children[1].value;
+
+    let yesRadio = document.getElementById("yes");
+    let noRadio = document.getElementById("no");
+    let radioList = [yesRadio, noRadio];
+    let didRead = "";
+    for (let i = 0; i < radioList.length; i++) {
+      if (radioList[i].checked === true) {
+        if (i === 0) {
+          didRead = true;
+        } else {
+          didRead = false;
+        }
       }
     }
+
+    return { title, author, numPages, didRead };
   }
 
   // Check for the missing values before calling 'addBookToLibrary'
   let isMissingValues = false;
-  let userInputs = [title, author, numPages, didRead];
+
+  let userInputs = Object.values(bookInfo);
   userInputs.forEach((userInput, index) => {
     let inputTitle = document.getElementById("modal-title").children[1];
     let inputAuthor = document.getElementById("modal-author").children[1];
@@ -64,10 +90,32 @@ function addBookBtnHandler() {
 
   // If there's no missing values call 'addBookToLibrary'
   if (isMissingValues != true) {
-    addBookToLibrary(title, author, numPages, didRead);
+    addBookToLibrary(...userInputs);
     closeModal();
 
     // Render on the screen
     render();
   }
+}
+
+function getBookInfo() {
+  let title = document.getElementById("modal-title").children[1].value;
+  let author = document.getElementById("modal-author").children[1].value;
+  let numPages = document.getElementById("modal-num-pages").children[1].value;
+
+  let yesRadio = document.getElementById("yes");
+  let noRadio = document.getElementById("no");
+  let radioList = [yesRadio, noRadio];
+  let didRead = "";
+  for (let i = 0; i < radioList.length; i++) {
+    if (radioList[i].checked === true) {
+      if (i === 0) {
+        didRead = true;
+      } else {
+        didRead = false;
+      }
+    }
+  }
+
+  return { title, author, numPages, didRead };
 }
