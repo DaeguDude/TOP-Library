@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Book Info Popup CSS */
@@ -18,7 +18,7 @@ body {
 .modal-open {
   position: fixed;
   z-index: 1;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   overflow: auto;
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@ body {
   font-size: 1.3em;
 }
 
-.modal-flex-items input[type=text] {
+.modal-flex-items input[type="text"] {
   width: 100%;
   height: 50px;
   border-radius: 5px;
@@ -57,7 +57,7 @@ body {
   margin-top: 5px;
 }
 
-.modal-flex-items input[type=number] {
+.modal-flex-items input[type="number"] {
   width: 25%;
   height: 50px;
   border-radius: 5px;
@@ -86,13 +86,13 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.modal-flex-items input[type=text]:focus,
-.modal-flex-items input[type=number]:focus {
+.modal-flex-items input[type="text"]:focus,
+.modal-flex-items input[type="number"]:focus {
   outline: none;
   border: 3px solid #555;
 }
 
-.modal-flex-items input[type=radio] {
+.modal-flex-items input[type="radio"] {
   width: 20px;
   height: 20px;
 }
@@ -168,7 +168,6 @@ input::-webkit-inner-spin-button {
   transform: translateY(4px);
 }
 
-
 /* ------------------------------------------------------- */
 /* main section */
 /* ------------------------------------------------------- */
@@ -185,7 +184,7 @@ input::-webkit-inner-spin-button {
 
   padding: 2% 5%; /* vertical & horizontal */
   display: flex;
-  
+
   /* flex-flow: <direction> <flex-wrap> < */
   flex-flow: column nowrap;
 }
@@ -314,7 +313,6 @@ there is not space avaiable */
 }
 
 #footer #contact {
-  
   display: flex;
   flex-direction: column;
 }
@@ -331,8 +329,6 @@ there is not space avaiable */
 #contact a:hover {
   color: blue;
 }
-
-
 
 /* Media Query - width is less than 850px */
 @media only screen and (max-width: 850px) {
@@ -358,19 +354,19 @@ there is not space avaiable */
     flex: 0 0 40%;
     max-width: 40%;
   }
-  
+
   #author {
     flex: 0 0 26%;
   }
-  
+
   #num-pages {
     flex: 0 0 13%;
   }
-  
+
   #read-not-read {
     flex: 0 0 13%;
   }
-  
+
   #remove {
     flex: 0 0 6.5%;
   }
@@ -401,11 +397,10 @@ there is not space avaiable */
     min-height: 85vh;
   }
 
-  #submit-area button{
+  #submit-area button {
     font-size: 1em;
   }
 }
-
 
 /* ------------------------------------------------------- */
 /* Forms section */
@@ -432,7 +427,8 @@ div.form-example {
   display: table-row;
 }
 
-label, input {
+label,
+input {
   display: table-cell;
   margin-bottom: 10px;
 }
@@ -448,11 +444,3 @@ input[type="button"]#close {
 input:invalid {
   box-shadow: 0 0 5px 1px red;
 }
-
-  
-
-
-
-
-
-

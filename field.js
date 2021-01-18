@@ -1,3 +1,28 @@
+function RadioField(name) {
+  let didRead = "";
+
+  const isEmpty = () => {
+    const isNotChecked = () => {
+      const yesRadio = document.querySelector("#yes");
+      const noRadio = document.querySelector("#no");
+
+      if (yesRadio.checked === true || noRadio.checked === true) {
+        return false;
+      }
+
+      return true;
+    };
+
+    return isNotChecked();
+  };
+
+  return { isEmpty };
+}
+
+const title = InputField("title");
+const author = InputField("author");
+const numPages = InputField("numPages");
+
 function InputField(name) {
   let element;
 
@@ -30,36 +55,3 @@ function InputField(name) {
 
   return { element, indicateError, removeError, isEmpty };
 }
-
-function RadioField(name) {
-  let didRead = "";
-
-  const isEmpty = () => {
-    const isNotChecked = () => {
-      const yesRadio = document.querySelector("#yes");
-      const noRadio = document.querySelector("#no");
-
-      if (yesRadio.checked === true || noRadio.checked === true) {
-        return false;
-      }
-
-      return true;
-    };
-
-    return isNotChecked();
-  };
-
-  return { isEmpty };
-}
-
-const title = InputField("title");
-const author = InputField("author");
-const numPages = InputField("numPages");
-
-console.log(title);
-console.log(author);
-console.log(numPages);
-
-const didRead = RadioField();
-console.log(didRead);
-console.log(didRead);

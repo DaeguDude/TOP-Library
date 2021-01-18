@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/fadac8530c.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- MODAL HTML -->
-  <!-- <div class="book-info-modal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/fadac8530c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- MODAL HTML -->
+    <!-- <div class="book-info-modal">
     <form action="" method="get" class="form-example">
       
       <div class="form-example">
@@ -42,96 +48,103 @@
 
     </form>
   </div> -->
-  <div id="book-info-modal" class="modal-close">
-    <div id="modal-flex-container">
-      
-      <div class="modal-flex-items"><h1 id="modal-header">BOOK INFORMATION</h1></div>
-      
-      <div id="modal-title" class="modal-flex-items">
-        <p>Title:</p>
-        <input type="text" id="book-title" name="title">
+    <div id="book-info-modal" class="modal-close">
+      <div id="modal-flex-container">
+        <div class="modal-flex-items">
+          <h1 id="modal-header">BOOK INFORMATION</h1>
+        </div>
+
+        <div id="modal-title" class="modal-flex-items">
+          <p>Title:</p>
+          <input type="text" id="book-title" name="title" />
+        </div>
+
+        <div id="modal-author" class="modal-flex-items">
+          <p>Author:</p>
+          <input type="text" id="author" name="author" />
+        </div>
+
+        <div id="modal-num-pages" class="modal-flex-items">
+          <p>Number of Pages:</p>
+          <input
+            type="number"
+            id="num-pages"
+            name="num-pages"
+            min="0"
+            ,
+            max="1500"
+          />
+        </div>
+
+        <div id="modal-read-or-not" class="modal-flex-items">
+          <p class="blank-button-msg">Check the Button</p>
+          <p>Read or Not</p>
+          <form>
+            <div>
+              <input type="radio" id="yes" name="yes-or-no" value="yes" />
+              <label for="yes">Yes</label>
+              <input type="radio" id="no" name="yes-or-no" value="no" />
+              <label for="no">No</label>
+            </div>
+          </form>
+        </div>
+
+        <div id="submit-area" class="modal-flex-items">
+          <button id="submit-add-book">Add a book</button>
+          <button id="submit-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HTML -->
+    <div id="container">
+      <div id="header">
+        <h1>LIBRARY</h1>
+        <button id="new-book-btn">Add a New Book</button>
       </div>
 
-      <div id="modal-author" class="modal-flex-items">
-        <p>Author:</p>
-        <input type="text" id="author" name="author">
-      </div>
-
-      <div id="modal-num-pages" class="modal-flex-items">
-        <p>Number of Pages:</p>
-        <input type="number" id="num-pages" name="num-pages" min="0", max="1500">
-      </div>
-      
-
-      <div id="modal-read-or-not" class="modal-flex-items">
-        <p class="blank-button-msg">Check the Button</p>
-        <p>Read or Not</p>
-        <form>
-          <div>
-            <input type="radio" id="yes" name="yes-or-no" value="yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="yes-or-no" value="no">
-            <label for="no">No</label>
+      <div id="main">
+        <div id="book-list">
+          <div class="top-row-book book">
+            <div id="title" class="book-items">Title</div>
+            <div id="author" class="book-items">Author</div>
+            <div id="num-pages" class="book-items">Pages</div>
+            <div id="read-not-read" class="book-items">Read</div>
+            <div id="remove" class="book-items"></div>
           </div>
-        </form>
+          <!-- book -->
+        </div>
+        <!-- book-list -->
       </div>
+      <!-- main -->
 
-      <div id="submit-area" class="modal-flex-items">
-        <button id="submit-add-book">Add a book</button>
-        <button id="submit-cancel">Cancel</button>
-      </div>
-    </div>
-  </div>
- 
-  <!-- MAIN HTML -->
-  <div id="container">
-    <div id="header">
-      <h1>LIBRARY</h1>
-      <button id="new-book-btn">Add a New Book</button>
-    </div>
-
-    <div id="main">
-      <div id="book-list">
-        <div class="top-row-book book">
-          <div id="title" class="book-items">Title</div>
-          <div id="author" class="book-items">Author</div>
-          <div id="num-pages" class="book-items">Pages</div>
-          <div id="read-not-read" class="book-items">Read</div>
-          <div id="remove" class="book-items"></div>
-        </div> <!-- book -->
-      </div> <!-- book-list -->
-    </div> <!-- main -->
-
-    <div id="footer">
-      <div id="contact">
-        <span>CONTACT</span>
-        <a href="mailto:k3hppk@gmail.com">
-          <i class="far fa-envelope fa-sm"></i>
-          k3hppk@gmail.com
-        </a>
-        <a href="https://github.com/DaeguDude">
-          <i class="fab fa-github-square"></i>
-          Daegudude's Repo
-        </a>
+      <div id="footer">
+        <div id="contact">
+          <span>CONTACT</span>
+          <a href="mailto:k3hppk@gmail.com">
+            <i class="far fa-envelope fa-sm"></i>
+            k3hppk@gmail.com
+          </a>
+          <a href="https://github.com/DaeguDude">
+            <i class="fab fa-github-square"></i>
+            Daegudude's Repo
+          </a>
+        </div>
       </div>
     </div>
-  
-  </div>
-</body>
+  </body>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
 
-<!-- You need to include this SDK to use `firebase.database()` -->
-<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-database.js"></script>
+  <!-- You need to include this SDK to use `firebase.database()` -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-database.js"></script>
 
-<!-- Main Javascript -->
-<script src="script.js"></script>
-<script src="field.js"></script>
-
-
+  <!-- Main Javascript -->
+  <script src="script.js"></script>
+  <script src="field.js"></script>
 </html>

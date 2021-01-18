@@ -33,11 +33,13 @@ function render() {
   addBooksToDisplay(bookList);
 }
 
-function removeBooksFromDisplay(books) {
-  const booksLength = books.children.length;
-  for (let i = booksLength - 1; i >= 1; i--) {
-    books.removeChild(books.children[i]);
-  }
+function removeBooksFromDisplay(bookList) {
+  const books = Array.from(bookList.children);
+  books.forEach((book, index) => {
+    if (index != 0) {
+      book.remove();
+    }
+  });
 }
 
 function addBooksToDisplay(bookList) {
