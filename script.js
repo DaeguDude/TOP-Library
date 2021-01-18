@@ -222,15 +222,13 @@ function getBookInfo() {
   let noRadio = document.getElementById("no");
   let radioList = [yesRadio, noRadio];
   let didRead = "";
-  for (let i = 0; i < radioList.length; i++) {
-    if (radioList[i].checked === true) {
-      if (i === 0) {
-        didRead = true;
-      } else {
-        didRead = false;
-      }
+  radioList.forEach((radio, index) => {
+    if (radio.checked === true && index === 0) {
+      didRead = true;
+    } else if (radio.checked === true) {
+      didRead = false;
     }
-  }
+  });
 
   return { title, author, numPages, didRead };
 }
