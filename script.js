@@ -14,7 +14,8 @@ submitCancel.addEventListener("click", closeModal);
 // *********************************************************
 
 class Book {
-  constructor(title, author, numPages, didRead) {
+  constructor(bookInfoObj) {
+    const { title, author, numPages, didRead } = bookInfoObj;
     this.title = title;
     this.author = author;
     this.numPages = numPages;
@@ -22,8 +23,8 @@ class Book {
   }
 }
 
-function addBookToLibrary(title, author, numPages, didRead) {
-  const book = new Book(title, author, numPages, didRead);
+function addBookToLibrary(book) {
+  // const book = new Book(title, author, numPages, didRead);
   myLibrary.push(book);
 }
 
@@ -285,7 +286,7 @@ function addBookBtnHandler() {
   let isMissingValues = checkMissingValues(userInputs);
 
   if (isMissingValues != true) {
-    addBookToLibrary(...userInputs);
+    addBookToLibrary(new Book(bookInfo));
     closeModal();
     render();
   }
